@@ -1,216 +1,209 @@
 {% extends "base.html" %}
 
-{% block title %}Send Single SMS - SMS Application{% endblock %}
+{% block title %}Send SMS — SMS Platform{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="mb-4">
-            <i class="fas fa-paper-plane me-2"></i>Send Single SMS
-        </h1>
-        <p class="text-muted">Send an SMS message to a single recipient.</p>
+<!-- Header Section -->
+<section class="page-header fade-in">
+    <div class="page-header-content">
+        <h1 class="page-title">Send SMS</h1>
+        <p class="page-subtitle">
+            Send individual messages with precision and personal touch.
+        </p>
     </div>
-</div>
+</section>
 
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body p-4">
-                <form id="singleSmsForm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="phoneNumber" class="form-label">
-                                    <i class="fas fa-phone me-1"></i>Phone Number
-                                </label>
-                                <input type="tel" class="form-control" id="phoneNumber" 
-                                       placeholder="+1234567890" required>
-                                <div class="form-text">
-                                    Include country code (e.g., +1 for US, +254 for Kenya)
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="senderId" class="form-label">
-                                    <i class="fas fa-user me-1"></i>Sender ID (Optional)
-                                </label>
-                                <input type="text" class="form-control" id="senderId" 
-                                       placeholder="Your Name or Number">
-                                <div class="form-text">
-                                    Leave blank to use default sender ID
-                                </div>
-                            </div>
-                        </div>
+<!-- Main Form -->
+<section class="form-section">
+    <div class="card fade-in">
+        <h2 class="card-title">Compose Message</h2>
+        <form id="singleSmsForm" class="sms-form">
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label for="phone_number" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Phone Number
+                    </label>
+                    <input type="tel" name="phone_number" id="phone_number" class="form-control" 
+                           placeholder="+1 (555) 123-4567" required>
+                    <div class="field-help">
+                        Include country code for international numbers
                     </div>
-                    
-                    <div class="mb-3">
-                        <label for="message" class="form-label">
-                            <i class="fas fa-comment me-1"></i>Message
-                        </label>
-                        <textarea class="form-control" id="message" rows="4" 
-                                  placeholder="Type your SMS message here..." required maxlength="1600"></textarea>
-                        <div class="form-text d-flex justify-content-between">
-                            <span>SMS messages longer than 160 characters may be split into multiple parts</span>
-                            <span id="charCount">0/1600 characters</span>
-                        </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="sender" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Sender ID (Optional)
+                    </label>
+                    <input type="text" name="sender" id="sender" class="form-control" 
+                           placeholder="Your Name">
+                    <div class="field-help">
+                        Leave blank to use default sender
                     </div>
-                    
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-outline-secondary me-md-2" onclick="clearForm()">
-                            <i class="fas fa-eraser me-1"></i>Clear
-                        </button>
-                        <button type="submit" class="btn btn-primary" id="sendBtn">
-                            <i class="fas fa-paper-plane me-1"></i>Send SMS
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Results Modal -->
-<div class="modal fade" id="resultsModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="resultsModalTitle">
-                    <i class="fas fa-info-circle me-2"></i>SMS Sending Results
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Message
+                </label>
+                <textarea name="message" id="message" class="form-control" rows="5" 
+                          placeholder="Type your message here..." required maxlength="1600"></textarea>
+                <div class="message-meta">
+                    <span class="char-info">Messages over 160 characters may be split</span>
+                    <span id="charCount" class="char-count">0 / 1600</span>
+                </div>
             </div>
-            <div class="modal-body" id="resultsModalBody">
-                <!-- Results will be populated here -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='{{ url_for('reports') }}'">
-                    <i class="fas fa-chart-bar me-1"></i>View Reports
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                    Clear Form
+                </button>
+                <button type="submit" class="btn btn-primary" id="sendBtn">
+                    Send Message
                 </button>
             </div>
-        </div>
+        </form>
     </div>
-</div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-// Character counter
-document.getElementById('message').addEventListener('input', function() {
-    const charCount = this.value.length;
-    document.getElementById('charCount').textContent = `${charCount}/1600 characters`;
+// Character counter functionality
+function setupCharacterCounter() {
+    const messageInput = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
     
-    if (charCount > 160) {
-        document.getElementById('charCount').classList.add('text-warning');
-    } else {
-        document.getElementById('charCount').classList.remove('text-warning');
-    }
-});
-
-// Form submission
-document.getElementById('singleSmsForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const phoneNumber = document.getElementById('phoneNumber').value.trim();
-    const message = document.getElementById('message').value.trim();
-    const senderId = document.getElementById('senderId').value.trim();
-    const sendBtn = document.getElementById('sendBtn');
-    
-    if (!phoneNumber || !message) {
-        alert('Please fill in all required fields');
-        return;
-    }
-    
-    // Show loading state
-    sendBtn.disabled = true;
-    sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Sending...';
-    
-    try {
-        const response = await fetch('/api/send-sms', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                phone_numbers: [phoneNumber],
-                message: message,
-                sender: senderId || null
-            })
+    if (messageInput && charCount) {
+        messageInput.addEventListener('input', function() {
+            const count = this.value.length;
+            charCount.textContent = `${count} / 1600`;
+            
+            if (count > 160) {
+                charCount.style.color = 'var(--color-warning)';
+            } else {
+                charCount.style.color = '';
+            }
         });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showResults(result);
-        } else {
-            throw new Error(result.error || 'Unknown error occurred');
-        }
-        
-    } catch (error) {
-        alert(`Error: ${error.message}`);
-    } finally {
-        // Reset button
-        sendBtn.disabled = false;
-        sendBtn.innerHTML = '<i class="fas fa-paper-plane me-1"></i>Send SMS';
     }
-});
-
-function showResults(result) {
-    const modalBody = document.getElementById('resultsModalBody');
-    const modalTitle = document.getElementById('resultsModalTitle');
-    
-    if (result.successful > 0) {
-        modalTitle.innerHTML = '<i class="fas fa-check-circle text-success me-2"></i>SMS Sent Successfully!';
-        modalTitle.className = 'modal-title text-success';
-    } else {
-        modalTitle.innerHTML = '<i class="fas fa-exclamation-circle text-danger me-2"></i>SMS Sending Failed';
-        modalTitle.className = 'modal-title text-danger';
-    }
-    
-    modalBody.innerHTML = `
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card border-0 bg-light">
-                    <div class="card-body text-center">
-                        <h5 class="text-success"><i class="fas fa-check-circle"></i> ${result.successful}</h5>
-                        <p class="mb-0">Successful</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card border-0 bg-light">
-                    <div class="card-body text-center">
-                        <h5 class="text-danger"><i class="fas fa-times-circle"></i> ${result.failed}</h5>
-                        <p class="mb-0">Failed</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <hr>
-        
-        <div class="row">
-            <div class="col-12">
-                <h6>Details:</h6>
-                <ul class="list-unstyled">
-                    <li><strong>Total Messages:</strong> ${result.total_sent}</li>
-                    <li><strong>Duration:</strong> ${result.duration} seconds</li>
-                    ${result.bulk_id ? `<li><strong>Bulk ID:</strong> <code>${result.bulk_id}</code></li>` : ''}
-                </ul>
-            </div>
-        </div>
-    `;
-    
-    // Show modal
-    new bootstrap.Modal(document.getElementById('resultsModal')).show();
 }
 
+// Clear form function
 function clearForm() {
-    document.getElementById('singleSmsForm').reset();
-    document.getElementById('charCount').textContent = '0/1600 characters';
-    document.getElementById('charCount').classList.remove('text-warning');
+    const form = document.getElementById('singleSmsForm');
+    if (form) {
+        form.reset();
+        const charCount = document.getElementById('charCount');
+        if (charCount) {
+            charCount.textContent = '0 / 1600';
+            charCount.style.color = '';
+        }
+    }
 }
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    setupCharacterCounter();
+});
 </script>
+
+<!-- Additional Styles -->
+<style>
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.page-title {
+    font-family: var(--font-family-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sms-form {
+    margin-top: var(--spacing-xl);
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-label svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-primary);
+}
+
+.field-help {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-top: var(--spacing-xs);
+}
+
+.message-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-xs);
+    font-size: 0.875rem;
+}
+
+.char-info {
+    color: var(--color-text-tertiary);
+}
+
+.char-count {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    margin-top: var(--spacing-2xl);
+}
+
+@media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .message-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+}
+</style>
 {% endblock %}
 

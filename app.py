@@ -236,7 +236,7 @@ def health_check():
     return jsonify({
         'status': 'healthy',
         'timestamp': datetime.now().isoformat(),
-        'version': '2.0.0',
+        'version': '2.0.0-apple-inspired',
         'python_version': sys.version,
         'app_name': 'SMS Web Application'
     })

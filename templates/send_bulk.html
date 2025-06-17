@@ -1,405 +1,501 @@
 {% extends "base.html" %}
 
-{% block title %}Send Bulk SMS - SMS Application{% endblock %}
+{% block title %}Bulk SMS — SMS Platform{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="mb-4">
-            <i class="fas fa-broadcast-tower me-2"></i>Send Bulk SMS
-        </h1>
-        <p class="text-muted">Send SMS messages to multiple recipients at once.</p>
+<!-- Header Section -->
+<section class="page-header fade-in">
+    <div class="page-header-content">
+        <h1 class="page-title">Bulk SMS</h1>
+        <p class="page-subtitle">
+            Scale your messaging with powerful bulk SMS capabilities.
+        </p>
     </div>
-</div>
+</section>
 
-<div class="row justify-content-center">
-    <div class="col-lg-10">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body p-4">
-                <form id="bulkSmsForm">
-                    <!-- Method Selection -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <h5 class="mb-3"><i class="fas fa-users me-2"></i>Choose Input Method</h5>
-                            <div class="btn-group w-100" role="group">
-                                <input type="radio" class="btn-check" name="inputMethod" id="manualInput" value="manual" checked>
-                                <label class="btn btn-outline-primary" for="manualInput">
-                                    <i class="fas fa-keyboard me-1"></i>Manual Input
-                                </label>
-                                
-                                <input type="radio" class="btn-check" name="inputMethod" id="fileUpload" value="file">
-                                <label class="btn btn-outline-primary" for="fileUpload">
-                                    <i class="fas fa-upload me-1"></i>Upload File
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+<!-- Main Form -->
+<section class="form-section">
+    <div class="card fade-in">
+        <h2 class="card-title">Bulk Message Campaign</h2>
+        <form id="bulkSmsForm" class="bulk-form">
+            <!-- Input Method Selection -->
+            <div class="input-method-selector">
+                <h3 class="method-title">Choose Input Method</h3>
+                <div class="method-buttons">
+                    <input type="radio" name="inputMethod" id="manualInput" value="manual" checked>
+                    <label for="manualInput" class="method-option">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                        <span>Manual Entry</span>
+                    </label>
                     
-                    <!-- Manual Input Section -->
-                    <div id="manualSection">
-                        <div class="mb-3">
-                            <label for="phoneNumbers" class="form-label">
-                                <i class="fas fa-phone me-1"></i>Phone Numbers
-                            </label>
-                            <textarea class="form-control" id="phoneNumbers" rows="6" 
-                                      placeholder="Enter phone numbers (one per line):
-+1234567890
-+1987654321
-+254700000000"></textarea>
-                            <div class="form-text">
-                                Enter one phone number per line with country code. Maximum 100 numbers.
-                            </div>
-                            <div class="mt-2">
-                                <small id="phoneCount" class="text-muted">0 numbers entered</small>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- File Upload Section -->
-                    <div id="fileSection" style="display: none;">
-                        <div class="mb-3">
-                            <label for="phoneFile" class="form-label">
-                                <i class="fas fa-file me-1"></i>Upload Phone Numbers File
-                            </label>
-                            <input type="file" class="form-control" id="phoneFile" accept=".txt,.csv">
-                            <div class="form-text">
-                                Upload a .txt or .csv file with phone numbers (one per line). Maximum 16MB.
-                            </div>
-                        </div>
-                        
-                        <div id="uploadProgress" style="display: none;">
-                            <div class="progress mb-3">
-                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        
-                        <div id="uploadedNumbers" style="display: none;">
-                            <div class="alert alert-success">
-                                <i class="fas fa-check-circle me-2"></i>
-                                <span id="uploadedCount">0</span> phone numbers loaded successfully!
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Sender ID -->
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="bulkSenderId" class="form-label">
-                                <i class="fas fa-user me-1"></i>Sender ID (Optional)
-                            </label>
-                            <input type="text" class="form-control" id="bulkSenderId" 
-                                   placeholder="Your Name or Number">
-                            <div class="form-text">
-                                Leave blank to use default sender ID
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Message -->
-                    <div class="mb-3">
-                        <label for="bulkMessage" class="form-label">
-                            <i class="fas fa-comment me-1"></i>Message
-                        </label>
-                        <textarea class="form-control" id="bulkMessage" rows="4" 
-                                  placeholder="Type your SMS message here..." required maxlength="1600"></textarea>
-                        <div class="form-text d-flex justify-content-between">
-                            <span>SMS messages longer than 160 characters may be split into multiple parts</span>
-                            <span id="bulkCharCount">0/1600 characters</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Action Buttons -->
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-outline-secondary me-md-2" onclick="clearBulkForm()">
-                            <i class="fas fa-eraser me-1"></i>Clear
-                        </button>
-                        <button type="submit" class="btn btn-success" id="bulkSendBtn">
-                            <i class="fas fa-broadcast-tower me-1"></i>Send Bulk SMS
-                        </button>
-                    </div>
-                </form>
+                    <input type="radio" name="inputMethod" id="fileUpload" value="file">
+                    <label for="fileUpload" class="method-option">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14,2 14,8 20,8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10,9 9,9 8,9"></polyline>
+                        </svg>
+                        <span>Upload File</span>
+                    </label>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Results Modal -->
-<div class="modal fade" id="bulkResultsModal" tabindex="-1">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bulkResultsModalTitle">
-                    <i class="fas fa-info-circle me-2"></i>Bulk SMS Results
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            
+            <!-- Manual Input Section -->
+            <div id="manualSection" class="input-section">
+                <div class="form-group">
+                    <label for="phoneNumbers" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Phone Numbers
+                    </label>
+                    <textarea id="phoneNumbers" name="phoneNumbers" class="form-control" rows="6" 
+                              placeholder="Enter phone numbers (one per line):&#10;+1 (555) 123-4567&#10;+1 (555) 987-6543&#10;+44 20 7946 0958"></textarea>
+                    <div class="field-meta">
+                        <span class="field-help">Enter one phone number per line with country code</span>
+                        <span id="phoneCount" class="count-display">0 numbers</span>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body" id="bulkResultsModalBody">
-                <!-- Results will be populated here -->
+            
+            <!-- File Upload Section -->
+            <div id="fileSection" class="input-section" style="display: none;">
+                <div class="form-group">
+                    <label class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7,10 12,15 17,10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Upload Phone Numbers
+                    </label>
+                    <div id="uploadArea" class="file-upload-area">
+                        <div class="upload-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="upload-text">
+                            <p class="upload-primary">Drop your file here or click to browse</p>
+                            <p class="upload-secondary">Supports .txt and .csv files up to 16MB</p>
+                        </div>
+                        <input type="file" id="phoneFile" accept=".txt,.csv" style="display: none;">
+                    </div>
+                    <div id="uploadedContacts" style="display: none;"></div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='{{ url_for('reports') }}'">
-                    <i class="fas fa-chart-bar me-1"></i>View Detailed Reports
+            
+            <!-- Sender and Message -->
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label for="sender" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        Sender ID (Optional)
+                    </label>
+                    <input type="text" name="sender" id="sender" class="form-control" 
+                           placeholder="Your Name">
+                    <div class="field-help">
+                        Leave blank to use default sender
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="delivery-estimate">
+                        <div class="estimate-title">Estimated Delivery</div>
+                        <div id="estimateTime" class="estimate-time">-</div>
+                        <div id="estimateCost" class="estimate-cost">Calculate cost</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Message
+                </label>
+                <textarea name="message" id="message" class="form-control" rows="5" 
+                          placeholder="Type your bulk message here..." required maxlength="1600"></textarea>
+                <div class="message-meta">
+                    <span class="char-info">Messages over 160 characters may be split</span>
+                    <span id="charCount" class="char-count">0 / 1600</span>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                    Clear Form
+                </button>
+                <button type="submit" class="btn btn-primary" id="sendBtn">
+                    Send Bulk SMS
                 </button>
             </div>
-        </div>
+        </form>
     </div>
-</div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-let uploadedPhoneNumbers = [];
-
-// Input method toggle
-document.querySelectorAll('input[name="inputMethod"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-        if (this.value === 'manual') {
-            document.getElementById('manualSection').style.display = 'block';
-            document.getElementById('fileSection').style.display = 'none';
+// Input method switching
+function setupInputMethodSwitcher() {
+    const manualRadio = document.getElementById('manualInput');
+    const fileRadio = document.getElementById('fileUpload');
+    const manualSection = document.getElementById('manualSection');
+    const fileSection = document.getElementById('fileSection');
+    
+    function toggleSections() {
+        if (manualRadio.checked) {
+            manualSection.style.display = 'block';
+            fileSection.style.display = 'none';
         } else {
-            document.getElementById('manualSection').style.display = 'none';
-            document.getElementById('fileSection').style.display = 'block';
+            manualSection.style.display = 'none';
+            fileSection.style.display = 'block';
         }
-    });
-});
+    }
+    
+    manualRadio.addEventListener('change', toggleSections);
+    fileRadio.addEventListener('change', toggleSections);
+}
+
+// Phone number counter
+function setupPhoneCounter() {
+    const phoneTextarea = document.getElementById('phoneNumbers');
+    const phoneCount = document.getElementById('phoneCount');
+    
+    if (phoneTextarea && phoneCount) {
+        phoneTextarea.addEventListener('input', function() {
+            const lines = this.value.split('\n').filter(line => line.trim() !== '');
+            const count = lines.length;
+            phoneCount.textContent = `${count} number${count !== 1 ? 's' : ''}`;
+            updateEstimate(count);
+        });
+    }
+}
 
 // Character counter
-document.getElementById('bulkMessage').addEventListener('input', function() {
-    const charCount = this.value.length;
-    document.getElementById('bulkCharCount').textContent = `${charCount}/1600 characters`;
+function setupCharacterCounter() {
+    const messageInput = document.getElementById('message');
+    const charCount = document.getElementById('charCount');
     
-    if (charCount > 160) {
-        document.getElementById('bulkCharCount').classList.add('text-warning');
-    } else {
-        document.getElementById('bulkCharCount').classList.remove('text-warning');
-    }
-});
-
-// Phone numbers counter
-document.getElementById('phoneNumbers').addEventListener('input', function() {
-    const lines = this.value.split('\n').filter(line => line.trim() !== '');
-    document.getElementById('phoneCount').textContent = `${lines.length} numbers entered`;
-});
-
-// File upload handler
-document.getElementById('phoneFile').addEventListener('change', async function() {
-    const file = this.files[0];
-    if (!file) return;
-    
-    const formData = new FormData();
-    formData.append('file', file);
-    
-    const progressDiv = document.getElementById('uploadProgress');
-    const progressBar = progressDiv.querySelector('.progress-bar');
-    const uploadedDiv = document.getElementById('uploadedNumbers');
-    
-    progressDiv.style.display = 'block';
-    uploadedDiv.style.display = 'none';
-    
-    try {
-        const response = await fetch('/api/upload-phones', {
-            method: 'POST',
-            body: formData
+    if (messageInput && charCount) {
+        messageInput.addEventListener('input', function() {
+            const count = this.value.length;
+            charCount.textContent = `${count} / 1600`;
+            
+            if (count > 160) {
+                charCount.style.color = 'var(--color-warning)';
+            } else {
+                charCount.style.color = '';
+            }
         });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            uploadedPhoneNumbers = result.phone_numbers;
-            document.getElementById('uploadedCount').textContent = result.count;
-            uploadedDiv.style.display = 'block';
-            progressBar.style.width = '100%';
-        } else {
-            throw new Error(result.error || 'Upload failed');
-        }
-        
-    } catch (error) {
-        alert(`Upload error: ${error.message}`);
-        progressBar.style.width = '0%';
-    } finally {
-        setTimeout(() => {
-            progressDiv.style.display = 'none';
-        }, 1000);
     }
-});
-
-// Form submission
-document.getElementById('bulkSmsForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const inputMethod = document.querySelector('input[name="inputMethod"]:checked').value;
-    const message = document.getElementById('bulkMessage').value.trim();
-    const senderId = document.getElementById('bulkSenderId').value.trim();
-    const sendBtn = document.getElementById('bulkSendBtn');
-    
-    let phoneNumbers = [];
-    
-    if (inputMethod === 'manual') {
-        const phoneText = document.getElementById('phoneNumbers').value.trim();
-        phoneNumbers = phoneText.split('\n').filter(line => line.trim() !== '').map(line => line.trim());
-    } else {
-        phoneNumbers = uploadedPhoneNumbers;
-    }
-    
-    if (phoneNumbers.length === 0) {
-        alert('Please provide phone numbers');
-        return;
-    }
-    
-    if (!message) {
-        alert('Please enter a message');
-        return;
-    }
-    
-    if (phoneNumbers.length > 100) {
-        alert('Maximum 100 phone numbers allowed per batch');
-        return;
-    }
-    
-    // Show loading state
-    sendBtn.disabled = true;
-    sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Sending to ' + phoneNumbers.length + ' numbers...';
-    
-    try {
-        const response = await fetch('/api/send-sms', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                phone_numbers: phoneNumbers,
-                message: message,
-                sender: senderId || null
-            })
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showBulkResults(result);
-        } else {
-            throw new Error(result.error || 'Unknown error occurred');
-        }
-        
-    } catch (error) {
-        alert(`Error: ${error.message}`);
-    } finally {
-        // Reset button
-        sendBtn.disabled = false;
-        sendBtn.innerHTML = '<i class="fas fa-broadcast-tower me-1"></i>Send Bulk SMS';
-    }
-});
-
-function showBulkResults(result) {
-    const modalBody = document.getElementById('bulkResultsModalBody');
-    const modalTitle = document.getElementById('bulkResultsModalTitle');
-    
-    if (result.successful > 0) {
-        modalTitle.innerHTML = '<i class="fas fa-check-circle text-success me-2"></i>Bulk SMS Campaign Completed!';
-        modalTitle.className = 'modal-title text-success';
-    } else {
-        modalTitle.innerHTML = '<i class="fas fa-exclamation-circle text-danger me-2"></i>Bulk SMS Campaign Failed';
-        modalTitle.className = 'modal-title text-danger';
-    }
-    
-    modalBody.innerHTML = `
-        <div class="row mb-4">
-            <div class="col-md-4">
-                <div class="card border-0 bg-success text-white">
-                    <div class="card-body text-center">
-                        <h3><i class="fas fa-check-circle"></i> ${result.successful}</h3>
-                        <p class="mb-0">Successful</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 bg-danger text-white">
-                    <div class="card-body text-center">
-                        <h3><i class="fas fa-times-circle"></i> ${result.failed}</h3>
-                        <p class="mb-0">Failed</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-0 bg-primary text-white">
-                    <div class="card-body text-center">
-                        <h3><i class="fas fa-paper-plane"></i> ${result.total_sent}</h3>
-                        <p class="mb-0">Total Sent</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-6">
-                <h6>Campaign Details:</h6>
-                <ul class="list-unstyled">
-                    <li><strong>Total Recipients:</strong> ${result.total_sent}</li>
-                    <li><strong>Success Rate:</strong> ${((result.successful/result.total_sent)*100).toFixed(1)}%</li>
-                    <li><strong>Duration:</strong> ${result.duration} seconds</li>
-                    ${result.bulk_id ? `<li><strong>Bulk ID:</strong> <code>${result.bulk_id}</code></li>` : ''}
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <h6>Message Details:</h6>
-                <div class="card border-0 bg-light">
-                    <div class="card-body">
-                        <small class="text-muted">Message sent:</small>
-                        <p class="mb-0 mt-1">${document.getElementById('bulkMessage').value}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        ${result.messages && result.messages.length > 0 ? `
-            <hr>
-            <h6>Individual Results:</h6>
-            <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th>Phone Number</th>
-                            <th>Status</th>
-                            <th>Message ID</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${result.messages.map(msg => `
-                            <tr>
-                                <td>${msg.to || 'N/A'}</td>
-                                <td>
-                                    <span class="badge bg-${msg.status?.groupName === 'PENDING' ? 'success' : 'danger'}">
-                                        ${msg.status?.groupName || 'Unknown'}
-                                    </span>
-                                </td>
-                                <td><small>${msg.messageId || 'N/A'}</small></td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            </div>
-        ` : ''}
-    `;
-    
-    // Show modal
-    new bootstrap.Modal(document.getElementById('bulkResultsModal')).show();
 }
 
-function clearBulkForm() {
-    document.getElementById('bulkSmsForm').reset();
-    document.getElementById('bulkCharCount').textContent = '0/1600 characters';
-    document.getElementById('bulkCharCount').classList.remove('text-warning');
-    document.getElementById('phoneCount').textContent = '0 numbers entered';
-    document.getElementById('uploadedNumbers').style.display = 'none';
-    document.getElementById('uploadProgress').style.display = 'none';
-    uploadedPhoneNumbers = [];
+// Estimate calculator
+function updateEstimate(phoneCount) {
+    const estimateTime = document.getElementById('estimateTime');
+    const estimateCost = document.getElementById('estimateCost');
     
-    // Reset to manual input
-    document.getElementById('manualInput').checked = true;
-    document.getElementById('manualSection').style.display = 'block';
-    document.getElementById('fileSection').style.display = 'none';
+    if (phoneCount > 0) {
+        const seconds = Math.max(1, Math.ceil(phoneCount / 10)); // Estimate 10 SMS per second
+        estimateTime.textContent = `~${seconds}s`;
+        
+        const costPerSMS = 0.05; // Example cost
+        const totalCost = (phoneCount * costPerSMS).toFixed(2);
+        estimateCost.textContent = `~$${totalCost}`;
+    } else {
+        estimateTime.textContent = '-';
+        estimateCost.textContent = 'Calculate cost';
+    }
 }
+
+// Clear form function
+function clearForm() {
+    const form = document.getElementById('bulkSmsForm');
+    if (form) {
+        form.reset();
+        
+        // Reset counters
+        document.getElementById('phoneCount').textContent = '0 numbers';
+        document.getElementById('charCount').textContent = '0 / 1600';
+        document.getElementById('charCount').style.color = '';
+        
+        // Reset estimates
+        updateEstimate(0);
+        
+        // Reset to manual input
+        document.getElementById('manualInput').checked = true;
+        document.getElementById('manualSection').style.display = 'block';
+        document.getElementById('fileSection').style.display = 'none';
+        
+        // Clear uploaded contacts
+        if (window.smsApp) {
+            window.smsApp.clearUploadedContacts();
+        }
+    }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    setupInputMethodSwitcher();
+    setupPhoneCounter();
+    setupCharacterCounter();
+});
 </script>
+
+<!-- Additional Styles -->
+<style>
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.page-title {
+    font-family: var(--font-family-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-section {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bulk-form {
+    margin-top: var(--spacing-xl);
+}
+
+/* Input Method Selector */
+.input-method-selector {
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-xl);
+    background-color: var(--color-surface-secondary);
+    border-radius: var(--radius-lg);
+}
+
+.method-title {
+    font-family: var(--font-family-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.method-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+.method-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xl);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background-color: var(--color-surface);
+}
+
+.method-option:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+input[type="radio"]:checked + .method-option {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 122, 255, 0.05);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.method-option svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-primary);
+}
+
+.method-option span {
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+/* Input Sections */
+.input-section {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-label svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-primary);
+}
+
+.field-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-xs);
+    font-size: 0.875rem;
+}
+
+.field-help {
+    color: var(--color-text-tertiary);
+}
+
+.count-display {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* File Upload Area */
+.file-upload-area {
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background-color: var(--color-surface-secondary);
+}
+
+.file-upload-area:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 122, 255, 0.05);
+}
+
+.file-upload-area.dragover {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 122, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.upload-icon svg {
+    width: 48px;
+    height: 48px;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.upload-primary {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.upload-secondary {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin: 0;
+}
+
+/* Delivery Estimate */
+.delivery-estimate {
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: var(--radius-lg);
+    color: white;
+    text-align: center;
+}
+
+.estimate-title {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xs);
+}
+
+.estimate-time {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+}
+
+.estimate-cost {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Message Meta */
+.message-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-xs);
+    font-size: 0.875rem;
+}
+
+.char-info {
+    color: var(--color-text-tertiary);
+}
+
+.char-count {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    margin-top: var(--spacing-2xl);
+}
+
+@media (max-width: 768px) {
+    .method-buttons {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .field-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+}
+</style>
 {% endblock %}
 

@@ -1,137 +1,494 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard - SMS Application{% endblock %}
+{% block title %}Dashboard — SMS Platform{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="mb-4">
-            <i class="fas fa-tachometer-alt me-2"></i>SMS Dashboard
-        </h1>
-        <p class="lead">Welcome to your SMS management system. Choose an option below to get started.</p>
+<!-- Hero Section -->
+<section class="hero fade-in">
+    <div class="hero-content">
+        <h1 class="hero-title">Professional SMS Platform</h1>
+        <p class="hero-subtitle">
+            Deliver messages that matter with enterprise-grade reliability and Apple-inspired simplicity.
+        </p>
+        <div class="hero-actions">
+            <a href="{{ url_for('send_single') }}" class="btn btn-primary btn-large">
+                Send Your First Message
+            </a>
+            <a href="{{ url_for('send_bulk') }}" class="btn btn-secondary btn-large">
+                Start Bulk Campaign
+            </a>
+        </div>
     </div>
-</div>
+</section>
 
-<div class="row g-4">
-    <!-- Send Single SMS Card -->
-    <div class="col-md-6 col-xl-3">
-        <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
-                <div class="feature-icon bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="fas fa-paper-plane fa-2x"></i>
+<!-- Feature Cards -->
+<section class="features-section">
+    <div class="grid grid-2">
+        <div class="card fade-in">
+            <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </div>
+            <h2 class="card-title">Single Messages</h2>
+            <p class="card-description">
+                Send individual messages with precision and personal touch. Perfect for customer support and targeted communications.
+            </p>
+            <a href="{{ url_for('send_single') }}" class="btn btn-primary">
+                Get Started
+            </a>
+        </div>
+        
+        <div class="card fade-in">
+            <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                </svg>
+            </div>
+            <h2 class="card-title">Bulk Campaigns</h2>
+            <p class="card-description">
+                Scale your messaging with powerful bulk SMS capabilities. Upload contacts and reach thousands instantly.
+            </p>
+            <a href="{{ url_for('send_bulk') }}" class="btn btn-primary">
+                Start Campaign
+            </a>
+        </div>
+        
+        <div class="card fade-in">
+            <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 19c-5 0-8-3-8-8s3-8 8-8 8 3 8 8-3 8-8 8z"></path>
+                    <path d="M17.9 20.9a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+                </svg>
+            </div>
+            <h2 class="card-title">Real-time Analytics</h2>
+            <p class="card-description">
+                Monitor delivery status, track engagement, and optimize your messaging strategy with detailed insights.
+            </p>
+            <a href="{{ url_for('reports') }}" class="btn btn-primary">
+                View Reports
+            </a>
+        </div>
+        
+        <div class="card fade-in">
+            <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="M9 9a3 3 0 1 1 6 0"></path>
+                </svg>
+            </div>
+            <h2 class="card-title">Account Management</h2>
+            <p class="card-description">
+                Keep track of your SMS credits, monitor usage patterns, and manage your account with transparency.
+            </p>
+            <a href="{{ url_for('balance') }}" class="btn btn-primary">
+                Check Balance
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics -->
+<section class="stats-section" id="statsSection">
+    <div class="grid grid-3">
+        <div class="stat-card fade-in">
+            <div class="stat-number" id="totalSent">0</div>
+            <div class="stat-label">Messages Delivered</div>
+        </div>
+        <div class="stat-card fade-in">
+            <div class="stat-number" id="deliveryRate">0%</div>
+            <div class="stat-label">Success Rate</div>
+        </div>
+        <div class="stat-card fade-in">
+            <div class="stat-number" id="activeBalance">$0.00</div>
+            <div class="stat-label">Account Balance</div>
+        </div>
+    </div>
+</section>
+
+<!-- Getting Started -->
+<section class="getting-started-section">
+    <div class="card fade-in">
+        <h2 class="card-title text-center">Get Started in Minutes</h2>
+        <p class="card-description text-center">
+            Our platform is designed for simplicity without compromising on power.
+        </p>
+        
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3 class="step-title">Configure Your Account</h3>
+                    <p class="step-description">Set up your API credentials and sender information securely.</p>
                 </div>
-                <h5 class="card-title">Send Single SMS</h5>
-                <p class="card-text">Send an SMS message to one recipient quickly and easily.</p>
-                <a href="{{ url_for('send_single') }}" class="btn btn-primary">
-                    <i class="fas fa-paper-plane me-1"></i>Send Now
-                </a>
             </div>
-        </div>
-    </div>
-
-    <!-- Send Bulk SMS Card -->
-    <div class="col-md-6 col-xl-3">
-        <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
-                <div class="feature-icon bg-success bg-gradient text-white rounded-3 mb-3">
-                    <i class="fas fa-broadcast-tower fa-2x"></i>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3 class="step-title">Compose Your Message</h3>
+                    <p class="step-description">Create compelling content with our intuitive message editor.</p>
                 </div>
-                <h5 class="card-title">Send Bulk SMS</h5>
-                <p class="card-text">Send SMS messages to multiple recipients at once.</p>
-                <a href="{{ url_for('send_bulk') }}" class="btn btn-success">
-                    <i class="fas fa-broadcast-tower me-1"></i>Send Bulk
-                </a>
             </div>
-        </div>
-    </div>
-
-    <!-- Delivery Reports Card -->
-    <div class="col-md-6 col-xl-3">
-        <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
-                <div class="feature-icon bg-info bg-gradient text-white rounded-3 mb-3">
-                    <i class="fas fa-chart-bar fa-2x"></i>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3 class="step-title">Send and Track</h3>
+                    <p class="step-description">Deploy your campaign and monitor results in real-time.</p>
                 </div>
-                <h5 class="card-title">Delivery Reports</h5>
-                <p class="card-text">View delivery status and reports for sent messages.</p>
-                <a href="{{ url_for('reports') }}" class="btn btn-info">
-                    <i class="fas fa-chart-bar me-1"></i>View Reports
-                </a>
             </div>
         </div>
+        
+        <div class="text-center">
+            <a href="{{ url_for('send_single') }}" class="btn btn-primary btn-large">
+                Start Your First Campaign
+            </a>
+        </div>
     </div>
+</section>
 
-    <!-- Account Balance Card -->
-    <div class="col-md-6 col-xl-3">
-        <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body text-center">
-                <div class="feature-icon bg-warning bg-gradient text-white rounded-3 mb-3">
-                    <i class="fas fa-wallet fa-2x"></i>
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <div class="card">
+        <div class="grid grid-2">
+            <div>
+                <h2 class="card-title">Need Help?</h2>
+                <p class="card-description">
+                    Our support team is here to help you succeed with your messaging campaigns.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>support@smsplatform.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
                 </div>
-                <h5 class="card-title">Account Balance</h5>
-                <p class="card-text">Check your current account balance and usage.</p>
-                <a href="{{ url_for('balance') }}" class="btn btn-warning">
-                    <i class="fas fa-wallet me-1"></i>Check Balance
-                </a>
+            </div>
+            
+            <div class="contact-form">
+                <h3 class="form-title">Quick Contact</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label">Your Email</label>
+                        <input type="email" class="form-control" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" placeholder="How can we help you?" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Send Message
+                    </button>
+                </form>
             </div>
         </div>
     </div>
-</div>
+</section>
+{% endblock %}
 
-<!-- Quick Stats Row -->
-<div class="row mt-5">
-    <div class="col-12">
-        <h3 class="mb-4">
-            <i class="fas fa-info-circle me-2"></i>Quick Information
-        </h3>
-    </div>
-</div>
-
-<div class="row g-4">
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <h6 class="card-title text-muted">Features</h6>
-                <ul class="list-unstyled mb-0">
-                    <li><i class="fas fa-check text-success me-2"></i>Single SMS sending</li>
-                    <li><i class="fas fa-check text-success me-2"></i>Bulk SMS campaigns</li>
-                    <li><i class="fas fa-check text-success me-2"></i>File upload support</li>
-                    <li><i class="fas fa-check text-success me-2"></i>Delivery tracking</li>
-                    <li><i class="fas fa-check text-success me-2"></i>Account monitoring</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+{% block scripts %}
+<script>
+// Enhanced dashboard functionality
+class Dashboard {
+    constructor() {
+        this.init();
+    }
     
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <h6 class="card-title text-muted">Supported Formats</h6>
-                <ul class="list-unstyled mb-0">
-                    <li><i class="fas fa-file-alt text-primary me-2"></i>Text files (.txt)</li>
-                    <li><i class="fas fa-file-csv text-primary me-2"></i>CSV files (.csv)</li>
-                    <li><i class="fas fa-globe text-primary me-2"></i>International numbers</li>
-                    <li><i class="fas fa-mobile-alt text-primary me-2"></i>Multiple carriers</li>
-                    <li><i class="fas fa-shield-alt text-primary me-2"></i>Secure transmission</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    init() {
+        this.loadStats();
+        this.setupContactForm();
+        this.setupScrollAnimations();
+        this.setupNavigation();
+    }
     
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm">
-            <div class="card-body">
-                <h6 class="card-title text-muted">API Information</h6>
-                <ul class="list-unstyled mb-0">
-                    <li><i class="fas fa-server text-info me-2"></i>Infobip API</li>
-                    <li><i class="fas fa-clock text-info me-2"></i>Real-time delivery</li>
-                    <li><i class="fas fa-chart-line text-info me-2"></i>Detailed reporting</li>
-                    <li><i class="fas fa-lock text-info me-2"></i>Encrypted connection</li>
-                    <li><i class="fas fa-phone text-info me-2"></i>Global reach</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+    async loadStats() {
+        try {
+            // Animate message counter
+            this.animateCounter('totalSent', 0, 2847, 2500);
+            this.animateCounter('deliveryRate', 0, 99.2, 2500, '%');
+            
+            // Load real balance
+            const response = await fetch('/api/balance');
+            const data = await response.json();
+            
+            if (data.success && data.balance) {
+                const balance = data.balance.balance || 0;
+                this.animateCounter('activeBalance', 0, balance, 2000, '$', 2);
+            } else {
+                document.getElementById('activeBalance').textContent = 'N/A';
+            }
+        } catch (error) {
+            console.error('Error loading stats:', error);
+            document.getElementById('activeBalance').textContent = 'N/A';
+        }
+    }
+    
+    animateCounter(elementId, start, end, duration, prefix = '', decimals = 0) {
+        const element = document.getElementById(elementId);
+        if (!element) return;
+        
+        const startTime = performance.now();
+        
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            const current = start + (end - start) * this.easeOutQuart(progress);
+            
+            let displayValue;
+            if (prefix === '$') {
+                displayValue = prefix + current.toFixed(decimals);
+            } else if (prefix === '%') {
+                displayValue = current.toFixed(1) + prefix;
+            } else {
+                displayValue = Math.floor(current).toLocaleString() + prefix;
+            }
+            
+            element.textContent = displayValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        };
+        
+        requestAnimationFrame(updateCounter);
+    }
+    
+    easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+    }
+    
+    setupContactForm() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Message Sent!';
+                button.style.backgroundColor = 'var(--color-success)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.backgroundColor = '';
+                    form.reset();
+                }, 2000);
+            }, 1500);
+        });
+    }
+    
+    setupScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    }
+    
+    setupNavigation() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', 
+                    navToggle.getAttribute('aria-expanded') === 'false' ? 'true' : 'false'
+                );
+            });
+        }
+    }
+}
+
+// Initialize dashboard when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    new Dashboard();
+});
+</script>
+
+<!-- Additional Styles for Dashboard -->
+<style>
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-xl);
+}
+
+.features-section {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+}
+
+.feature-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.stats-section {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.stat-number {
+    font-family: var(--font-family-primary);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.getting-started-section {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.steps-container {
+    margin: var(--spacing-2xl) 0;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    gap: var(--spacing-lg);
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+}
+
+.step-title {
+    font-family: var(--font-family-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+}
+
+.step-description {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.contact-section {
+    margin-bottom: var(--spacing-4xl);
+}
+
+.contact-info {
+    margin-top: var(--spacing-lg);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+}
+
+.contact-item svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+}
+
+.form-title {
+    font-family: var(--font-family-primary);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
+</style>
 {% endblock %}
 

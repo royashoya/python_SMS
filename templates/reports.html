@@ -1,259 +1,379 @@
 {% extends "base.html" %}
 
-{% block title %}Delivery Reports - SMS Application{% endblock %}
+{% block title %}Reports — SMS Platform{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="mb-4">
-            <i class="fas fa-chart-bar me-2"></i>Delivery Reports
-        </h1>
-        <p class="text-muted">View delivery status and reports for sent messages.</p>
+<!-- Header Section -->
+<section class="page-header fade-in">
+    <div class="page-header-content">
+        <h1 class="page-title">Delivery Reports</h1>
+        <p class="page-subtitle">
+            Monitor delivery status, track engagement, and optimize your messaging strategy.
+        </p>
     </div>
-</div>
+</section>
 
-<div class="row">
-    <div class="col-12">
-        <div class="card border-0 shadow-sm">
-            <div class="card-header bg-transparent">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Filter Reports</h5>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-primary btn-sm" onclick="loadReports()">
-                            <i class="fas fa-sync-alt me-1"></i>Refresh
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <form id="filterForm" class="row g-3">
-                    <div class="col-md-4">
-                        <label for="bulkIdFilter" class="form-label">Bulk ID (Optional)</label>
-                        <input type="text" class="form-control" id="bulkIdFilter" placeholder="Enter Bulk ID">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="limitFilter" class="form-label">Number of Reports</label>
-                        <select class="form-select" id="limitFilter">
-                            <option value="10">10 reports</option>
-                            <option value="25">25 reports</option>
-                            <option value="50" selected>50 reports</option>
-                            <option value="100">100 reports</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 d-flex align-items-end">
-                        <button type="submit" class="btn btn-outline-primary w-100">
-                            <i class="fas fa-search me-1"></i>Apply Filter
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row mt-4">
-    <div class="col-12">
-        <div class="card border-0 shadow-sm">
-            <div class="card-header bg-transparent">
-                <h5 class="mb-0"><i class="fas fa-list me-2"></i>Recent Reports</h5>
-            </div>
-            <div class="card-body">
-                <div id="loadingReports" class="text-center py-4" style="display: none;">
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <p class="mt-2 text-muted">Loading delivery reports...</p>
-                </div>
-                
-                <div id="reportsContent">
-                    <div class="text-center py-4 text-muted">
-                        <i class="fas fa-inbox fa-3x mb-3"></i>
-                        <p>Click "Refresh" to load delivery reports</p>
+<!-- Search Form -->
+<section class="search-section">
+    <div class="card fade-in">
+        <h2 class="card-title">Search Reports</h2>
+        <form id="reportsForm" class="reports-form">
+            <div class="grid grid-2">
+                <div class="form-group">
+                    <label for="bulk_id" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        Bulk ID (Optional)
+                    </label>
+                    <input type="text" name="bulk_id" id="bulk_id" class="form-control" 
+                           placeholder="Enter bulk ID to filter results">
+                    <div class="field-help">
+                        Leave blank to see all recent messages
                     </div>
                 </div>
                 
-                <div id="noReports" class="text-center py-4 text-muted" style="display: none;">
-                    <i class="fas fa-inbox fa-3x mb-3"></i>
-                    <h5>No Reports Found</h5>
-                    <p>No delivery reports match your criteria or no messages have been sent yet.</p>
+                <div class="form-group">
+                    <label for="limit" class="form-label">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 17H7A5 5 0 0 1 7 7h2m0 10h2m-2 0v-5m6 5h2a5 5 0 0 0 0-10h-2m0 10v-5m0 5h-2m2-5V7m0 5h-2"></path>
+                        </svg>
+                        Number of Records
+                    </label>
+                    <select name="limit" id="limit" class="form-control">
+                        <option value="25">25 records</option>
+                        <option value="50" selected>50 records</option>
+                        <option value="100">100 records</option>
+                        <option value="250">250 records</option>
+                    </select>
+                    <div class="field-help">
+                        Maximum number of reports to load
+                    </div>
                 </div>
             </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="clearSearch()">
+                    Clear
+                </button>
+                <button type="submit" class="btn btn-primary" id="searchBtn">
+                    Load Reports
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section class="results-section">
+    <div id="reportsContainer" class="reports-container">
+        <!-- Reports will be loaded here -->
+        <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 0-8-3-8-8s3-8 8-8 8 3 8 8-3 8-8 8z"></path>
+                <path d="M17.9 20.9a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+            </svg>
+            <h3>No Reports Loaded</h3>
+            <p>Click "Load Reports" to view delivery information for your messages.</p>
         </div>
     </div>
-</div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-// Load reports on page load
-document.addEventListener('DOMContentLoaded', function() {
-    loadReports();
-});
-
-// Filter form submission
-document.getElementById('filterForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    loadReports();
-});
-
-async function loadReports() {
-    const loadingDiv = document.getElementById('loadingReports');
-    const contentDiv = document.getElementById('reportsContent');
-    const noReportsDiv = document.getElementById('noReports');
-    
-    const bulkId = document.getElementById('bulkIdFilter').value.trim();
-    const limit = document.getElementById('limitFilter').value;
-    
-    // Show loading state
-    loadingDiv.style.display = 'block';
-    contentDiv.style.display = 'none';
-    noReportsDiv.style.display = 'none';
-    
-    try {
-        const params = new URLSearchParams();
-        if (bulkId) params.append('bulk_id', bulkId);
-        params.append('limit', limit);
+// Clear search function
+function clearSearch() {
+    const form = document.getElementById('reportsForm');
+    if (form) {
+        form.reset();
+        document.getElementById('limit').value = '50'; // Reset to default
         
-        const response = await fetch(`/api/reports?${params}`);
-        const result = await response.json();
-        
-        if (result.success && result.reports.results && result.reports.results.length > 0) {
-            displayReports(result.reports.results);
-            contentDiv.style.display = 'block';
-        } else {
-            noReportsDiv.style.display = 'block';
-        }
-        
-    } catch (error) {
-        contentDiv.innerHTML = `
-            <div class="alert alert-danger">
-                <i class="fas fa-exclamation-triangle me-2"></i>
-                Error loading reports: ${error.message}
-            </div>
-        `;
-        contentDiv.style.display = 'block';
-    } finally {
-        loadingDiv.style.display = 'none';
-    }
-}
-
-function displayReports(reports) {
-    const contentDiv = document.getElementById('reportsContent');
-    
-    const tableHtml = `
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="table-light">
-                    <tr>
-                        <th><i class="fas fa-phone me-1"></i>Phone Number</th>
-                        <th><i class="fas fa-info-circle me-1"></i>Status</th>
-                        <th><i class="fas fa-clock me-1"></i>Sent At</th>
-                        <th><i class="fas fa-check-circle me-1"></i>Delivered At</th>
-                        <th><i class="fas fa-id-badge me-1"></i>Message ID</th>
-                        <th><i class="fas fa-dollar-sign me-1"></i>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${reports.map(report => {
-                        const status = report.status || {};
-                        const statusName = status.name || 'Unknown';
-                        const statusClass = getStatusClass(statusName);
-                        
-                        return `
-                            <tr>
-                                <td>
-                                    <strong>${report.to || 'N/A'}</strong>
-                                </td>
-                                <td>
-                                    <span class="badge bg-${statusClass}">
-                                        ${getStatusIcon(statusName)} ${statusName}
-                                    </span>
-                                </td>
-                                <td>
-                                    <small class="text-muted">
-                                        ${formatDateTime(report.sentAt) || 'N/A'}
-                                    </small>
-                                </td>
-                                <td>
-                                    <small class="text-muted">
-                                        ${formatDateTime(report.doneAt) || 'Pending'}
-                                    </small>
-                                </td>
-                                <td>
-                                    <small class="font-monospace">
-                                        ${report.messageId ? report.messageId.substring(0, 20) + '...' : 'N/A'}
-                                    </small>
-                                </td>
-                                <td>
-                                    <small class="text-muted">
-                                        ${report.price ? `${report.price.pricePerMessage} ${report.price.currency}` : 'N/A'}
-                                    </small>
-                                </td>
-                            </tr>
-                        `;
-                    }).join('')}
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="row mt-3">
-            <div class="col-12">
-                <div class="alert alert-info">
-                    <i class="fas fa-info-circle me-2"></i>
-                    Showing ${reports.length} reports. Status updates may take a few minutes to appear.
+        // Clear results
+        const container = document.getElementById('reportsContainer');
+        if (container) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 0-8-3-8-8s3-8 8-8 8 3 8 8-3 8-8 8z"></path>
+                        <path d="M17.9 20.9a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+                    </svg>
+                    <h3>No Reports Loaded</h3>
+                    <p>Click "Load Reports" to view delivery information for your messages.</p>
                 </div>
-            </div>
-        </div>
-    `;
-    
-    contentDiv.innerHTML = tableHtml;
-}
-
-function getStatusClass(status) {
-    switch (status.toLowerCase()) {
-        case 'delivered':
-        case 'pending':
-            return 'success';
-        case 'undelivered':
-        case 'expired':
-        case 'rejected':
-            return 'danger';
-        case 'unknown':
-            return 'warning';
-        default:
-            return 'secondary';
+            `;
+        }
     }
 }
 
-function getStatusIcon(status) {
-    switch (status.toLowerCase()) {
-        case 'delivered':
-            return '<i class="fas fa-check-circle"></i>';
-        case 'pending':
-            return '<i class="fas fa-clock"></i>';
-        case 'undelivered':
-        case 'expired':
-        case 'rejected':
-            return '<i class="fas fa-times-circle"></i>';
-        case 'unknown':
-            return '<i class="fas fa-question-circle"></i>';
-        default:
-            return '<i class="fas fa-info-circle"></i>';
-    }
+// Export reports function
+function exportReports() {
+    // This could be implemented to export current reports to CSV
+    console.log('Export functionality would be implemented here');
 }
 
-function formatDateTime(dateString) {
-    if (!dateString) return null;
-    
-    try {
-        const date = new Date(dateString);
-        return date.toLocaleString();
-    } catch (e) {
-        return dateString;
-    }
-}
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-load recent reports on page load
+    setTimeout(() => {
+        const form = document.getElementById('reportsForm');
+        if (form && window.smsApp) {
+            // Trigger the form submission to load initial reports
+            const event = new Event('submit');
+            form.dispatchEvent(event);
+        }
+    }, 500);
+});
 </script>
+
+<!-- Additional Styles -->
+<style>
+.page-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.page-title {
+    font-family: var(--font-family-primary);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-section {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-3xl) auto;
+}
+
+.reports-form {
+    margin-top: var(--spacing-xl);
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-weight: 500;
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-label svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-primary);
+}
+
+.field-help {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-top: var(--spacing-xs);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-end;
+    margin-top: var(--spacing-2xl);
+}
+
+.results-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reports-container {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-xl);
+}
+
+.empty-state svg {
+    width: 64px;
+    height: 64px;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.empty-state h3 {
+    font-family: var(--font-family-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.empty-state p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Error State */
+.error-state {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-xl);
+}
+
+.error-state svg {
+    width: 64px;
+    height: 64px;
+    color: var(--color-error);
+    margin-bottom: var(--spacing-lg);
+}
+
+.error-state h3 {
+    font-family: var(--font-family-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.error-state p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Reports Table */
+.reports-table {
+    width: 100%;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border-light);
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--color-surface-secondary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.table-body {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color var(--transition-fast);
+}
+
+.table-row:hover {
+    background-color: var(--color-surface-secondary);
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-cell {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+}
+
+.font-mono {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.8rem;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-success {
+    background-color: rgba(52, 199, 89, 0.1);
+    color: var(--color-success);
+}
+
+.status-warning {
+    background-color: rgba(255, 149, 0, 0.1);
+    color: var(--color-warning);
+}
+
+.status-error {
+    background-color: rgba(255, 59, 48, 0.1);
+    color: var(--color-error);
+}
+
+.status-secondary {
+    background-color: var(--color-surface-secondary);
+    color: var(--color-text-tertiary);
+}
+
+/* Loading State */
+.loading-state {
+    text-align: center;
+    padding: var(--spacing-4xl) var(--spacing-xl);
+}
+
+.loading-state p {
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xs);
+    }
+    
+    .table-cell {
+        padding: var(--spacing-xs) 0;
+        border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .table-cell:last-child {
+        border-bottom: none;
+    }
+    
+    .table-header .table-cell {
+        font-weight: 600;
+        color: var(--color-text-primary);
+    }
+}
+</style>
 {% endblock %}
 
