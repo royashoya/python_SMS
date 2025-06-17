@@ -103,7 +103,7 @@ API_KEY = "your-api-key-here"                   # Your Infobip API key
 python app.py
 ```
 
-🎉 **Access your application at:** `http://localhost:5000`
+🎉 **Access your application at:** `http://localhost:5001`
 
 ---
 
@@ -607,7 +607,7 @@ python app.py
 pip install gunicorn
 
 # Run with Gunicorn
-gunicorn --bind 0.0.0.0:5000 --workers 4 app:app
+gunicorn --bind 0.0.0.0:5001 --workers 4 app:app
 ```
 
 #### 2. Using Docker
@@ -620,15 +620,15 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . .
-EXPOSE 5000
+EXPOSE 5001
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "app:app"]
 ```
 
 ```bash
 # Build and run
 docker build -t sms-app .
-docker run -p 5000:5000 sms-app
+docker run -p 5001:5001 sms-app
 ```
 
 #### 3. Environment Variables
@@ -648,7 +648,7 @@ server {
     server_name yourdomain.com;
 
     location / {
-        proxy_pass http://127.0.0.1:5000;
+        proxy_pass http://127.0.0.1:5001;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -861,7 +861,7 @@ pip install -r requirements.txt
 
 **Choose your preferred interface:**
 
-[🌐 **Launch Web App**](http://localhost:5000) • [📱 **CLI Guide**](#command-line-interface) • [📄 **API Docs**](#api-reference)
+[🌐 **Launch Web App**](http://localhost:5001) • [📱 **CLI Guide**](#command-line-interface) • [📄 **API Docs**](#api-reference)
 
 ---
 

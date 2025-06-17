@@ -155,13 +155,13 @@ jobs:
         sed -i 's/YOUR_SENDER_ID/TestSender/g' config.py
         python app.py &
         sleep 5
-        curl -f http://localhost:5000 || echo "App started"
+        curl -f http://localhost:5001 || echo "App started"
       
     - name: 🚦 Run Lighthouse
       uses: treosh/lighthouse-ci-action@v9
       with:
         urls: |
-          http://localhost:5000
+          http://localhost:5001
         configPath: './.github/lighthouse/lighthouse.json'
         uploadArtifacts: true
         temporaryPublicStorage: true

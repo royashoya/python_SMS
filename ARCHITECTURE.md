@@ -762,10 +762,10 @@ USER appuser
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:5000/health || exit 1
+    CMD curl -f http://localhost:5001/health || exit 1
 
 # Run application
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--workers", "4", "app:app"]
 ```
 
 ### Kubernetes Deployment
@@ -791,7 +791,7 @@ spec:
       - name: sms-web-app
         image: sms-web-app:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 5001
         env:
         - name: INFOBIP_API_KEY
           valueFrom:
@@ -808,13 +808,13 @@ spec:
         livenessProbe:
           httpGet:
             path: /health
-            port: 5000
+            port: 5001
           initialDelaySeconds: 30
           periodSeconds: 30
         readinessProbe:
           httpGet:
             path: /health
-            port: 5000
+            port: 5001
           initialDelaySeconds: 5
           periodSeconds: 10
 ```
@@ -829,7 +829,7 @@ services:
   app:
     image: sms-web-app:latest
     ports:
-      - "5000:5000"
+      - "5001:5001"
     environment:
       - FLASK_ENV=production
       - INFOBIP_API_KEY=${INFOBIP_API_KEY}
@@ -840,7 +840,7 @@ services:
           memory: 512M
           cpus: '0.5'
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
       interval: 30s
       timeout: 10s
       retries: 3

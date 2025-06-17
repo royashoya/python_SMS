@@ -1,0 +1,1578 @@
+  225* clear
+  226* brew install rar
+  227* cd Downloads
+  228* ll
+  229* unrar SAP_GUI_for_Java.rar
+  230* clear
+  231* unrar SAP_GUI_for_Java.rar
+  232* cd Downloads
+  233* unrar SAP_GUI_for_Java.rar
+  234* sudo unrar SAP_GUI_for_Java.rar
+  235* tmux
+  236* nvim
+  237* ll
+  238* brew update && brew upgrade
+  239* tmux
+  240* clear
+  241* nvim .p10k.zsh
+  242* brew update && brew upgrade
+  243* apt update
+  244* clear
+  245* brew update && brew upgrade
+  246* apt update
+  247* echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+  248* apt update
+  249* export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+  250* apt update
+  251* quit
+  252* apt update
+  253* brew update && brew upgrade
+  254* clear
+  255* brew update && brew upgrade
+  256* clear
+  257* brew update && brew upgrade
+  258* fzf
+  259* brew install fzf
+  260* fzf
+  261* brew update && brew upgrade
+  262* clear
+  263* brew update && brew upgrade
+  264* clear
+  265* brew update && brew upgrade
+  266* sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+  267* export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+  268* tmux
+  269* ls
+  270* ls -l
+  271* ll
+  272* open /System/Applications/iPhone\ Mirroring.app
+  273* brew update && brew upgrade
+  274* clear
+  275* brew update && brew upgrade
+  276* exit
+  277* brew update && brew upgrade
+  278* brew cleanup
+  279* exit
+  280* brew update && brew upgrade
+  281* whois isuzu.co.ke
+  282* clear
+  283* nvim
+  284* nvim .p10k.zsh
+  285* nvim
+  286* vim
+  287* cd Documents
+  288* ls
+  289* cd BUSINESS\ RECORDS/2024
+  290* ll
+  291* ls -l
+  292* cd 034\ -\ ISUZU\ EA\ Website\ Files
+  293* ls -l
+  294* cd 001\ -\ Website\ Files
+  295* ls -l
+  296* cd isuzu-ea-master
+  297* ls -l
+  298* ls -al
+  299* cd Documents
+  300* ls -al
+  301* cd GitHub
+  302* ls
+  303* cd isuzu-react-website
+  304* ls -al
+  305* pwd
+  306* cp -rvf .env.production /Users/royashoya/Documents/GitHub/isuzu-react-website
+  307* ls -al
+  308* cp -rvf .env.development /Users/royashoya/Documents/GitHub/isuzu-react-website
+  309* cp -rvf .env.example /Users/royashoya/Documents/GitHub/isuzu-react-website
+  310* cp -rvf .env.staging /Users/royashoya/Documents/GitHub/isuzu-react-website
+  311* ls -al
+  312* neovim
+  313* nvim
+  314* git push
+  315* brew install --cask git-credential-manager
+  316* brew update && brew upgrade
+  317* ls -al
+  318* brew update && brew upgrade
+  319* exit
+  320* brew update && brew upgrade
+  321* exit
+  322* brew update && brew upgrade
+  323* exit
+  324* brew update && brew upgrade
+  325* ls
+  326* cd Downloads
+  327* ll
+  328* vim automotive-website.html
+  329* clear
+  330* vim automotive-website.html
+  331* cd Downloads
+  332* vim automotive-website.html
+  333* cd Downloads
+  334* vim automotive-website.html
+  335* history
+  336* nvim
+  337* nvim automotive-website.html
+  338* clear
+  339* cd ~
+  340* ll
+  341* ls -al
+  342* locate .lua
+  343* sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+  344* locate .lua
+  345* find .lua
+  346* find *.lua
+  347* find --help
+  348* man find
+  349* locate nvim
+  350* sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+  351* sudo launchctl load bootstrap
+  352* su
+  353* clear
+  354* ls -al
+  355* cd .config
+  356* ls -al
+  357* cd nvim
+  358* ls -al
+  359* neovim init.lua
+  360* nvim init.lua
+  361* nvim ~/.config/nvim/lua/plugins.lua
+  362* tree
+  363* ls -al
+  364* cd lua
+  365* ls -al
+  366* cd plugins
+  367* ls -al
+  368* nvim init.lua
+  369* cd Downloads
+  370* cd isuzu-website-layout.html
+  371* ls -al
+  372* nvim isuzu-website-layout-v006.html
+  373* history
+  374* nvim automotive-website.html
+  375* cd Downloads
+  376* nvim automotive-website.html
+  377* nvim isuzu-website-layout-v006.html
+  378* cd Do
+  379* cd Downloads
+  380* nvim automotive-website.html
+  381* clear
+  382* pwd
+  383* cd Downloads
+  384* ls
+  385* clear
+  386* mkdir ISUZU_Trucks
+  387* cd ISUZU_Trucks
+  388* mkdir Light_Duty(N-Series)
+  389* mkdir Light_Duty N-Series
+  390* mkdir Medium_Duty F-Series
+  391* mkdir Heavy_Duty G-Series
+  392* cd Light_Duty
+  393* tree
+  394* cd ..
+  395* tree
+  396* rm *
+  397* tree
+  398* rm * -frv
+  399* clear
+  400* cd N-Series
+  401* mkdir overview
+  402* mkdir models
+  403* mkdir applications
+  404* locate-a-dealer
+  405* mkdir locate-a-dealer
+  406* cd overview
+  407* nvim 01-history
+  408* nvim 02-Performance
+  409* nvim 03-Sustainability
+  410* nvim 04-Telematics
+  411* nvim 05-applications
+  412* pwd
+  413* cd ../../..
+  414* pwd
+  415* cd ISUZU_Trucks
+  416* CLEAR
+  417* tree
+  418* cd N-Series/models
+  419* nvim 01-NLR_Truck
+  420* nvim 02-NMR_Truck
+  421* nvim 03-NQR_Truck
+  422* nvim 04-NQR-Xtra
+  423* nvim 05-NPS_Truck
+  424* cd ..
+  425* cd../..
+  426* cd ../..
+  427* pwd
+  428* cd ISUZU_Trucks
+  429* clear
+  430* tree
+  431* cd N-Series/models/CD ~
+  432* cd ~
+  433* nvim isuzu-website-layout-v006.html
+  434* ll
+  435* ls -al
+  436* pwd
+  437* cd Downloads
+  438* ls -al
+  439* nvim isuzu-website-layout-v006.html
+  440* cd ~/Downloads/IS
+  441* cd ~/Downloads/ISUZU_Trucks
+  442* LL
+  443* ll
+  444* tree
+  445* nvim ~/Downloads/isuzu-website-layout-v006.html
+  446* tree
+  447* tccutil reset All com.surteesstudios.Bartender-setapp;
+  448* brew update && brew upgrade
+  449* clear
+  450* tmux
+  451* clear
+  452* pwd
+  453* cd Downloads
+  454* ll
+  455* ls -d
+  456* cd ISUZU_Trucks
+  457* tree
+  458* man rm
+  459* rm *-dfv
+  460* rm * -dfv
+  461* clear
+  462* rm * -dfv
+  463* rm * -fvr
+  464* ll
+  465* rm * -dvr
+  466* man rm
+  467* man rm -df
+  468* rm -df
+  469* ll
+  470* rm F-Series/*
+  471* rm F-Serie
+  472* ll
+  473* clear
+  474* tree
+  475* cd ~
+  476* ll
+  477* mkdir python_projects
+  478* cd python_projects
+  479* mkdir bigtree
+  480* cd bigtree
+  481* pip install 'bigtree[image]'
+  482* pip3 install 'bigtree[image]'
+  483* history grep venv
+  484* history grep env
+  485* history | grep env
+  486* brew install 'bigtree[image]'
+  487* brew install bigtree
+  488* pip3 install bigtree
+  489* brew install pipx
+  490* pip3 install bigtree
+  491* pipx install bigtree
+  492* pip install bigtree
+  493* brew install pi
+  494* brew install pip
+  495* brew install python3
+  496* pip install bigtree
+  497* pip3 install bigtree
+  498* clear
+  499* pip3 install bigtree
+  500* cd ..
+  501* rm -d bigtree
+  502* python3 -m bigtree ~/python_projects
+  503* python3 -m bigtree
+  504* python3 -m env
+  505* pipx install bigtree
+  506* pip install bigtree
+  507* pipx install bigtree
+  508* pip3 install python
+  509* python --version
+  510* python3 --version
+  511* python3 -m bigtree
+  512* clear
+  513* python3 -m venv roy_test
+  514* virtualenv -p python3 roy_test_01
+  515* pipx install virtualenv
+  516* virtualenv -p python3 roy_test_01
+  517* virtualenv test
+  518* exit
+  519* tmux
+  520* virtualenv test
+  521* tmux
+  522* pwd
+  523* cd Downloads
+  524* ll
+  525* ls
+  526* clear
+  527* cd ISUZU_Trucks
+  528* ls
+  529* ll
+  530* ls
+  531* tree
+  532* clear
+  533* tree
+  534* cd 03-Trucks
+  535* tree
+  536* cd 3.1\ Light_Duty\ \(N-Series\)
+  537* ls
+  538* tree
+  539* mkdir 3.1.1_NLR_Truck
+  540* mkdir 3.1.2_NMR_Truck
+  541* mkdir 3.1.3_NQR_Truck
+  542* mkdir 3.1.4_NQR_Xtra_Truck
+  543* mkdir 3.1.5_NPS_Truck
+  544* tree
+  545* cd ..
+  546* tree
+  547* cd 3.2\ Medium_Duty\ \(F-Series\)
+  548* mkdir 3.2.1_FRR_Truck
+  549* mkdir 3.2.2_FVR90L_Truck
+  550* mkdir 3.2.3_FVR90P_Truck
+  551* mkdir 3.2.4_FVR34_Truck
+  552* mkdir 3.2.5_FVR34_Truck
+  553* mkdir 3.2.6_FVZ34_Tipper_Truck
+  554* mkdir 3.2.7_FVZ34_Cargo_Truck
+  555* tree
+  556* cd ..
+  557* tree
+  558* cd 3.1\ Light_Duty\ \(N-Series\)
+  559* cd 3.1.1_NLR_Truck
+  560* tree
+  561* cd ../..
+  562* cd ..
+  563* tree
+  564* clear
+  565* tree
+  566* clear
+  567* tree
+  568* cd 03-Trucks/3.3\ Product\ Range\ \(N\ F\ G\)/3.3.1\ Light_Duty\ \(N-Series\)/3.3.1.1\ NLR_Truck
+  569* touch 1.0\ Hero\ Image 2.0\ Summary \Specs 3.0\Download \Brochure
+  570* tree
+  571* clear
+  572* tree
+  573* cd ~/Downloads/ISUZU_Trucks
+  574* tree
+  575* clear
+  576* tree
+  577* clear
+  578* tree
+  579* lear
+  580* clear
+  581* tree
+  582* man tree
+  583* clear
+  584* tree -H web.html
+  585* tree -H > ~/Downloads/web.html
+  586* tree > ~/Downloads/web.html -H
+  587* tree > ~/Downloads/web.htm
+  588* tree -H ./  > isuzu_web_result.html
+  589* updatedb
+  590* clear
+  591* tree
+  592* clear
+  593* tmux
+  594* cd ~/Downloads/ISUZU_Trucks
+  595* tree
+  596* clear
+  597* tree
+  598* tree -d
+  599* clear
+  600* tree -d
+  601* tree
+  602* tree -H ./  > isuzu_web_result.html
+  603* tree
+  604* tree -H ./  > isuzu_web_result.html
+  605* exit
+  606* xit
+  607* exit
+  608* cd 
+  609* cd Downloads
+  610* tmux
+  611* cd ISUZU_Trucks
+  612* clear
+  613* tree
+  614* tree -H ./  > isuzu_web_result.html
+  615* exit
+  616* brew update && brew upgrade
+  617* exit
+  618* pwd
+  619* cd Downloads
+  620* cd ISUZU_Trucks
+  621* tree -d
+  622* cd 03-Trucks
+  623* tree -d
+  624* cd 3.3\ Product\ Range\ \(N\ F\ G\)
+  625* tree -d
+  626* cd 3.3.2\ Medium_Duty\ \(F-Series\)/3.3.2.1\ FRR90_Truck
+  627* tree -d
+  628* tree
+  629* man tree
+  630* clear
+  631* cd..
+  632* cd ..
+  633* tree
+  634* PWD
+  635* pwd
+  636* cd Documents
+  637* cd ISUZU_Trucks
+  638* CD ../Downloads/ISUZU_Trucks
+  639* tmu
+  640* tmux
+  641* pwd
+  642* cd ../Downloads
+  643* cd ISUZU_Trucks
+  644* nvim ~/Downloads/isuzu-website-layout-v006.html
+  645* :q
+  646* exit
+  647* pwd
+  648* cd Downloads/ISUZU_Trucks
+  649* ll
+  650* pwd
+  651* tree -d
+  652* tree
+  653* cd Downloads
+  654* ll
+  655* tree -d
+  656* clear
+  657* ls -d
+  658* cd RG14\ Sales\ Kit
+  659* LS -D
+  660* ls -d
+  661* cd Mailer\ Assets
+  662* ls
+  663* tmux
+  664* ll
+  665* nvim all-new-tfs87-19l-mt-double-cab-66c66343cdc5c32a2ef797a1.html
+  666* exit
+  667* tmux
+  668* brew update && brew upgrade
+  669* exit
+  670* tmux attach || tmux new
+  671* brew update && brew upgrade
+  672* tmux attach || tmux new
+  673* brew update && brew upgrade
+  674* clear
+  675* mux attach || tmux new
+  676* brew update && brew upgrade
+  677* exit
+  678* tmux attach || tmux new
+  679* brew update && brew upgrade
+  680* tmux attach || tmux new
+  681* brew update && brew upgrade
+  682* tmux attach || tmux new
+  683* brew update && brew upgrade
+  684* tmux attach || tmux new
+  685* brew update && brew upgrade
+  686* exit
+  687* tmux attach || tmux new
+  688* brew update && brew upgrade
+  689* exit
+  690* tmux attach || tmux new
+  691* brew update && brew upgrade
+  692* sudo xcodebuild -license accept
+  693* brew update && brew upgrade
+  694* EXIT
+  695* exit
+  696* mux attach || tmux new
+  697* brew update && brew upgrade
+  698* tmux attach || tmux new
+  699* ssh i /Users/royashoya/Downloads/Frankfurt Private Key/Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  700* ssh -i /Users/royashoya/Downloads/Frankfurt Private Key/Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  701* cd Downloads/Frankfurt\ Private\ Key
+  702* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  703* tmux attach || tmux new
+  704* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  705* ssh -i Frankfurt-eu-central-privatekey.pem bongatech@3.65.197.19
+  706* ssh -i  bongatech@3.65.197.19
+  707* ssh bongatech@3.65.197.19 -p 22
+  708* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  709* ssh bongatech@3.65.197.19 -p 22
+  710* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  711* ssh bongatech@3.65.197.19 -p 22
+  712* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  713* ssh bongatech@3.65.197.19 -p 22
+  714* tmux attach || tmux new
+  715* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  716* ssh bongatech@3.65.197.19 -p 22
+  717* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  718* ssh ubuntu@3.65.197.19 -p 22
+  719* ssh bongatech@3.65.197.19 -p 22
+  720* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  721* ssh bongatech@3.65.197.19 -p 22
+  722* ssh ubuntu@3.65.197.19 -p 22
+  723* ssh bongatech@3.65.197.19 -p 22
+  724* ssh roy@3.65.197.19 -p 22
+  725* ssh bongatech@3.65.197.19 -p 22
+  726* ssh roy@3.65.197.19 -p 22
+  727* ssh bongatech@3.65.197.19 -p 22
+  728* ssh roy@3.65.197.19 -p 22
+  729* ssh ubuntu@3.65.197.19 -p 22
+  730* exit
+  731* tmux attach || tmux new
+  732* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  733* cd Downloads/Frankfurt\ Private\ Key
+  734* clear
+  735* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  736* ssh roy@3.65.197.19 -p 22
+  737* cd Downloads/Frankfurt\ Private\ Key
+  738* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.65.197.19
+  739* ssh roy@3.65.197.19 -p 22
+  740* histor
+  741* history
+  742* tmux attach || tmux new
+  743* ssh bongatech@3.65.197.19 -p 22
+  744* tmux attach || tmux new
+  745* ssh bongatech@3.65.197.19 -p 22
+  746* exit
+  747* mux attach || tmux new
+  748* brew update && brew upgrade
+  749* exit
+  750* tmux attach || tmux new
+  751* brew update && brew upgrade
+  752* tmux attach || tmux new
+  753* brew update && brew upgrade
+  754* ssh bongatech@3.65.197.19 -p 22
+  755* exit
+  756* tmux attach || tmux new
+  757* brew update && brew upgrade
+  758* ssh bongatech@3.65.197.19 -p 22
+  759* tmux attach || tmux new
+  760* :kill
+  761* clear
+  762* ssh bongatech@3.65.197.19 -p 22
+  763* tmux attach || tmux new
+  764* EXIT
+  765* exit
+  766* clear
+  767* ssh bongatech@3.65.197.19 -p 22
+  768* exiyt
+  769* exit
+  770* tmux attach || tmux new
+  771* brew update && brew upgrade
+  772* exit
+  773* tmux attach || tmux new
+  774* brew update && brew upgrade
+  775* exit
+  776* tmux attach || tmux new
+  777* brew update && brew upgrade
+  778* mux attach || tmux new
+  779* brew update && brew upgrade
+  780* tmux attach || tmux new
+  781* brew update && brew upgrade
+  782* exit
+  783* tmux attach || tmux new
+  784* brew update && brew upgrade
+  785* tmux attach || tmux new
+  786* brew update && brew upgrade
+  787* exit
+  788* tmux attach || tmux new
+  789* brew update && brew upgrade
+  790* tmux attach || tmux new
+  791* brew update && brew upgrade
+  792* exit
+  793* tmux attach || tmux new
+  794* cd ~/Downloads
+  795* cd LARK_Router
+  796* ll
+  797* docker-compose up -d
+  798* brew install docker-compose
+  799* docker-compose up -d
+  800* docker-compose up
+  801* exit
+  802* tmux attach || tmux new
+  803* pwd
+  804* mkdir virtual
+  805* cd virtual
+  806* pip install virtualenv\n
+  807* brew install pip pip3
+  808* brew install pip
+  809* pip3 install virtualenv\n
+  810* python3.13 -m pip install --upgrade pip
+  811* brew install virtualenv
+  812* virtualenv test
+  813* source test/bin/activate
+  814* pip list
+  815* pip3 install wheel
+  816* pip list
+  817* deactivate
+  818* ll
+  819* ls -l
+  820* virtualenv mbuni
+  821* source mbuni/bin/activate
+  822* pip list
+  823* history
+  824* pip install mbuni
+  825* pip check kannel
+  826* pip --help
+  827* pip install kannel
+  828* gh repo clone markjeee/mbuni
+  829* pip install gh
+  830* pip list
+  831* gh repo clone markjeee/mbuni
+  832* git@github.com:markjeee/mbuni.git
+  833* pip install wget
+  834* wget https://github.com/markjeee/mbuni.git
+  835* ll
+  836* cd mbuni
+  837* ll
+  838* cd ..
+  839* rm -vf mbuni.git
+  840* ll
+  841* cd mbuni
+  842* git clone https://github.com/markjeee/mbuni.git
+  843* ll
+  844* cd mbuni
+  845* ll
+  846* cd ..
+  847* pip install libiconv
+  848* pip3 install libiconv
+  849* pip install libXML
+  850* pip install install libxml2-dev libxslt-dev python-dev
+  851* pip install libxml2-dev libxslt-dev python-dev
+  852* pip install python-dev
+  853* brew install python-dev
+  854* brew install libxml2-dev
+  855* brew install libxml2 libxslt-dev python-dev
+  856* brew install libxml2 libxslt python-dev
+  857* brew install libxml2 libxslt
+  858* git clone https://github.com/markjeee/kannel.git
+  859* ll
+  860* cd kannel
+  861* ll
+  862* ls -l
+  863* ./configure
+  864* make install
+  865* cd ..
+  866* ll
+  867* cd mbuni
+  868* ll
+  869* ./bootsrap
+  870* ./bootstrap
+  871* pip install automake
+  872* ./bootstrap
+  873* brew install automake
+  874* ./bootstrap
+  875* brew uninstall automake
+  876* brew install automake
+  877* automake --version
+  878* ./bootstrap
+  879* brew install automake1.7
+  880* update-alternatives --config automake\n
+  881* pip install update-alternatives
+  882* brew install update-alternatives
+  883* brew install automake-1.7
+  884* automake --version
+  885* wget https://ftp.gnu.org/gnu/automake/automake-1.7.tar.gz
+  886* ll
+  887* mv automake-1.7.tar.gz ../mbuni
+  888* mv automake-1.7.tar.gz ../mbuni/
+  889* ll
+  890* mv automake-1.7.tar.gz ~/virtual/mbuni
+  891* ll
+  892* cd ..
+  893* ll
+  894* tar zxf automake-1.7.tar.gz
+  895* ll
+  896* cd automake-1.7
+  897* ll
+  898* ./configure
+  899* make
+  900* make check
+  901* make checksu
+  902* s
+  903* su
+  904* sudo make install
+  905* make installcheck
+  906* automake --version
+  907* make installcheckcd ..
+  908* ll
+  909* cd ..
+  910* ll
+  911* cd mbuni
+  912* ll
+  913* ./bootstrap
+  914* pip install libtool
+  915* ./bootstrap
+  916* deactivate
+  917* source mbuni/bin/activate
+  918* source ~/virtual/mbuni/bin/activate
+  919* ./bootstrap
+  920* brew install libtool
+  921* ./bootstrap
+  922* autoupdate 
+  923* ./configure
+  924* autoupdate autotools
+  925* ./configure
+  926* ./bootstrap
+  927* locate configure.ac
+  928* ll
+  929* vim configure.ac
+  930* mkdir -p m4\n
+  931* ll
+  932* glibtoolize --force --copy\n
+  933* aclocal -I m4\n
+  934* autoconf\n
+  935* ./bootstrap
+  936* ll
+  937* vim Makefile.am
+  938* vim configure.ac
+  939* aclocal -I m4\n
+  940* autoconf\n
+  941* automake --add-missing\n
+  942* ./bootstrap
+  943* vim configure.ac
+  944* pip install libtool\n
+  945* glibtoolize --force --copy\n
+  946* aclocal -I m4\n
+  947* autoconf\n
+  948* automake --add-missing\n
+  949* vim configure.ac
+  950* ./bootstrap
+  951* vim configure.ac
+  952* ./bootstrap
+  953* vim configure.ac
+  954* aclocal\n
+  955* autoconf\n
+  956* automake --add-missing\n
+  957* ./bootstrap
+  958* vim configure.ac
+  959* aclocal\n
+  960* autoconf\n
+  961* automake --add-missing\n
+  962* ./bootstrap
+  963* cd extras/mmsbox-mm1/
+  964* ll
+  965* vim Makefile.am
+  966* cd ~/virtual/mbuni/mbuni
+  967* ll
+  968* ./bootstrap
+  969* autoreconf --install --force\n
+  970* ./configure
+  971* brew install kannel
+  972* cd ../..
+  973* ll
+  974* cd mbuni
+  975* ll
+  976* cd kannw
+  977* cd kannel
+  978* ll
+  979* ./configure
+  980* make
+  981* ll
+  982* cd test
+  983* vim test_http.c 
+  984* cd ../..
+  985* cd kannel
+  986* ll
+  987* make clean\n
+  988* make
+  989* cd test
+  990* vim test_http.c 
+  991* cd ..
+  992* ll
+  993* cd mbuni
+  994* ll
+  995* ./configure
+  996* make install
+  997* ./configure
+  998* touch .depend
+  999* make depend
+ 1000* make
+ 1001* tmux attach || tmux new
+ 1002* brew update && brew upgrade
+ 1003* exit
+ 1004* mux attach || tmux new
+ 1005* brew update && brew upgrade
+ 1006* tmux attach || tmux new
+ 1007* brew update && brew upgrade
+ 1008* tmux attach || tmux new
+ 1009* brew update && brew upgrade
+ 1010* tmux attach || tmux new
+ 1011* brew update && brew upgrade
+ 1012* tmux attach || tmux new
+ 1013* brew update && brew upgrade
+ 1014* tmux attach || tmux new
+ 1015* brew update && brew upgrade
+ 1016* tmux attach || tmux new
+ 1017* brew update && brew upgrade
+ 1018* mux attach || tmux new
+ 1019* brew update && brew upgrade
+ 1020* tmux attach || tmux new
+ 1021* history
+ 1022* history | grep env
+ 1023* ls -al
+ 1024* cd python_projects
+ 1025* ls -la
+ 1026* mkdir 002-OpenCV
+ 1027* cd 002-OpenCV
+ 1028* history | grep env
+ 1029* virtualenv opencv
+ 1030* history | grep source
+ 1031* source ~/python_projects/002-OpenCV/opencv/bin/activate
+ 1032* vim opencv-001.py
+ 1033* clear
+ 1034* vim opencv-001.py
+ 1035* rm opencv-001.py
+ 1036* ls
+ 1037* ls -al
+ 1038* cd opencv
+ 1039* ll
+ 1040* touch opencv-001.py
+ 1041* vim 
+ 1042* vim opencv-001.py
+ 1043* clear
+ 1044* vim opencv-001.py
+ 1045* rm opencv-001.py
+ 1046* mv ~/Downloads/opencv-001.py ~/python_projects/002-OpenCV/opencv
+ 1047* ls
+ 1048* vim opencv-001.py
+ 1049* touch requirements.txt
+ 1050* vim requirements.txt
+ 1051* pip install -r requirements.txt\n
+ 1052* pip3 install -r requirements.txt\n
+ 1053* pip install sqlite3\n
+ 1054* pip install sqlite\n
+ 1055* pip3 install libsqlite3-dev
+ 1056* vim requirements.txt
+ 1057* python
+ 1058* pip install -r requirements.txt\n
+ 1059* clear
+ 1060* pip install -r requirements.txt --verbose\n
+ 1061* vim requirements.txt
+ 1062* pip install opencv-python\n
+ 1063* exit
+ 1064* tmux attach || tmux new
+ 1065* brew install --cask multipass
+ 1066* multipass find
+ 1067* multipass launch lts
+ 1068* multipass list
+ 1069* multipass shell sparkling-leafhopper
+ 1070* multipass stop sparkling-leafhopper
+ 1071* multipass list
+ 1072* multipass launch lts
+ 1073* multipass shell blithe-cow
+ 1074* multipass list
+ 1075* multipass stop blithe-cow
+ 1076* multipass shell sparkling-leafhopper
+ 1077* multipass list
+ 1078* tmux attach || tmux new
+ 1079* multipass list
+ 1080* multipass shell sparkling-leafhopper
+ 1081* tmux attach || tmux new
+ 1082* cheese
+ 1083* clear
+ 1084* exit
+ 1085* ls
+ 1086* ls -al
+ 1087* cd virtual
+ 1088* ls
+ 1089* cd ..
+ 1090* cd python_projects
+ 1091* ls
+ 1092* cd 002-OpenCV
+ 1093* ls
+ 1094* cd opencv
+ 1095* ls
+ 1096* source ~/python_projects/002-OpenCV/opencv/bin/activate
+ 1097* python opencv-001.py
+ 1098* pip install opencv-python\n
+ 1099* python opencv-001.py
+ 1100* pip install -r requirements.txt\n
+ 1101* vim requirements.txt
+ 1102* pip install -r requirements.txt\n
+ 1103* python opencv-001.py
+ 1104* pip install ultralytics
+ 1105* python -V
+ 1106* pip install python==3.12\n
+ 1107* EXIT
+ 1108* deactivate
+ 1109* brew update\n
+ 1110* brew install pyenv\n
+ 1111* alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+ 1112* exec "$SHELL"\n
+ 1113* brew install pyenv-virtualenv\n
+ 1114* eval "$(pyenv virtualenv-init -)"
+ 1115* pyenv version
+ 1116* pyenv install 3.10.4
+ 1117* istory
+ 1118* history
+ 1119* source ~/python_projects/002-OpenCV/opencv/bin/activate
+ 1120* ll
+ 1121* python opencv-001.py
+ 1122* pip list
+ 1123* pip install ultralytics
+ 1124* python -V
+ 1125* pyenv install 3.12
+ 1126* python -V
+ 1127* pip install python==3.12\n
+ 1128* cheese
+ 1129* tmux attach || tmux new
+ 1130* brew update && brew upgrade\n
+ 1131* brew cleanup
+ 1132* exit
+ 1133* tmux attach || tmux new
+ 1134* brew update && brew upgrade\n
+ 1135* tmux attach || tmux new
+ 1136* brew update && brew upgrade\n
+ 1137* tmux attach || tmux new
+ 1138* brew update && brew upgrade\n
+ 1139* tmux attach || tmux new
+ 1140* ll
+ 1141* cd virtual
+ 1142* ll
+ 1143* cd ~/python_projects
+ 1144* ll
+ 1145* tree -d
+ 1146* ll
+ 1147* cd 002-OpenCV
+ 1148* ll
+ 1149* cd opencv
+ 1150* ll
+ 1151* cd ~
+ 1152* history
+ 1153* ll
+ 1154* cd python_projects
+ 1155* ll
+ 1156* cd 002-OpenCV
+ 1157* ll
+ 1158* cd opencv
+ 1159* ll
+ 1160* cd bin
+ 1161* ll
+ 1162* cd ~/virtual
+ 1163* ll
+ 1164* cd test
+ 1165* ll
+ 1166* cd bin
+ 1167* ll
+ 1168* cd ..
+ 1169* ll
+ 1170* cd /opt/homebrew/opt/python@3.13/bin/python3.13
+ 1171* cd /opt/homebrew/opt/python@3.13/bin
+ 1172* ll
+ 1173* cd /opt/homebrew/opt
+ 1174* ll
+ 1175* tmux attach || tmux new
+ 1176* clear
+ 1177* cd ~
+ 1178* ll
+ 1179* chee
+ 1180* cheese
+ 1181* homebrew install cheese
+ 1182* brew install cheese
+ 1183* brew list
+ 1184* brew --help
+ 1185* brew commands
+ 1186* tmux attach || tmux new
+ 1187* brew update && brew upgrade\n
+ 1188* clear
+ 1189* tmux attach || tmux new
+ 1190* brew update && brew upgrade\n
+ 1191* tmux attach || tmux new
+ 1192* brew update && brew upgrade\n
+ 1193* tmux attach || tmux new
+ 1194* brew update && brew upgrade\n
+ 1195* tmux attach || tmux new
+ 1196* brew update && brew upgrade\n
+ 1197* tmux attach || tmux new
+ 1198* clear
+ 1199* pwd
+ 1200* ll
+ 1201* cd Downloads\
+ 1202* cd Downloads
+ 1203* ll
+ 1204* vi web.html
+ 1205* tmux attach || tmux new
+ 1206* brew update && brew upgrade\n
+ 1207* mux attach || tmux new
+ 1208* brew update && brew upgrade\n
+ 1209* tmux attach || tmux new
+ 1210* brew update && brew upgrade\n
+ 1211* tmux attach || tmux new
+ 1212* brew update && brew upgrade\n
+ 1213* tmux attach || tmux new
+ 1214* brew update && brew upgrade\n
+ 1215* exit
+ 1216* clear
+ 1217* tmux attach || tmux new
+ 1218* exit
+ 1219* tmux attach || tmux new
+ 1220* brew update && brew upgrade\n
+ 1221* exit
+ 1222* tmux attach || tmux new
+ 1223* brew update && brew upgrade\n
+ 1224* mux attach || tmux new
+ 1225* brew update && brew upgrade\n
+ 1226* tmux attach || tmux new
+ 1227* brew update && brew upgrade\n
+ 1228* mux attach || tmux new
+ 1229* brew update && brew upgrade\n
+ 1230* hostname
+ 1231* tmux attach || tmux new
+ 1232* brew update && brew upgrade\n
+ 1233* exit
+ 1234* tmux attach || tmux new
+ 1235* brew update && brew upgrade\n
+ 1236* tmux attach || tmux new
+ 1237* brew update && brew upgrade\n
+ 1238* mux attach || tmux new
+ 1239* brew update && brew upgrade\n
+ 1240* tmux attach || tmux new
+ 1241* brew update && brew upgrade\n
+ 1242* tmux attach || tmux new
+ 1243* brew update && brew upgrade\n
+ 1244* tmux attach || tmux new
+ 1245* brew update && brew upgrade\n
+ 1246* tmux attach || tmux new
+ 1247* brew update && brew upgrade\n
+ 1248* mux attach || tmux new
+ 1249* brew update && brew upgrade\n
+ 1250* tmux attach || tmux new
+ 1251* brew update && brew upgrade\n
+ 1252* tmux attach || tmux new
+ 1253* brew update && brew upgrade\n
+ 1254* exit
+ 1255* tmux attach || tmux new
+ 1256* brew update && brew upgrade\n
+ 1257* tmux attach || tmux new
+ 1258* brew update && brew upgrade\n
+ 1259* tmux attach || tmux new
+ 1260* brew update && brew upgrade\n
+ 1261* tmux attach || tmux new
+ 1262* brew update && brew upgrade\n
+ 1263* mux attach || tmux new
+ 1264* brew update && brew upgrade\n
+ 1265* tmux attach || tmux new
+ 1266* brew update && brew upgrade\n
+ 1267* tmux attach || tmux new
+ 1268* brew update && brew upgrade\n
+ 1269* tmux attach || tmux new
+ 1270* brew update && brew upgrade\n
+ 1271* tmux attach || tmux new
+ 1272* brew update && brew upgrade\n
+ 1273* tmux attach || tmux new
+ 1274* brew update && brew upgrade\n
+ 1275* tmux attach || tmux new
+ 1276* brew update && brew upgrade\n
+ 1277* tmux attach || tmux new
+ 1278* brew update && brew upgrade\n
+ 1279* tmux attach || tmux new
+ 1280* brew update && brew upgrade\n
+ 1281* tmux attach || tmux new
+ 1282* clear
+ 1283* brew update && brew upgrade\n
+ 1284* mux attach || tmux new
+ 1285* brew update && brew upgrade\n
+ 1286* tmux attach || tmux new
+ 1287* brew update && brew upgrade\n
+ 1288* /usr/sbin/universalaccessd ; exit;
+ 1289* mux attach || tmux new
+ 1290* brew update && brew upgrade\n
+ 1291* tmux attach || tmux new
+ 1292* brew update && brew upgrade\n
+ 1293* tmux attach || tmux new
+ 1294* pwd
+ 1295* ll
+ 1296* cd Desktop
+ 1297* touch T124 IEA Sales Strategy Planrequirements.xlsx
+ 1298* touch T124\nIEA\nSales\nStrategy\nPlanrequirements.xlsx
+ 1299* touch T124\ IEA\ Sales\ Strategy\ Planrequirements.xlsx
+ 1300* tmux attach || tmux new
+ 1301* brew update && brew upgrade\n
+ 1302* tmux attach || tmux new
+ 1303* brew update && brew upgrade\n
+ 1304* tmux attach || tmux new
+ 1305* clear
+ 1306* pwd
+ 1307* cd Downloads
+ 1308* ll
+ 1309* clear
+ 1310* touch FinanceBill2025.py
+ 1311* vi FinanceBill2025.py
+ 1312* tmux attach || tmux new
+ 1313* pwd
+ 1314* vi FinanceBill2025.py
+ 1315* tmux attach || tmux new
+ 1316* python3 FinanceBill2025.py
+ 1317* vi FinanceBill2025.py
+ 1318* python3 FinanceBill2025.py
+ 1319* vi FinanceBill2025.py
+ 1320* python3 FinanceBill2025.py
+ 1321* vi FinanceBill2025.py
+ 1322* python3 FinanceBill2025.py
+ 1323* vi FinanceBill2025.py
+ 1324* python3 FinanceBill2025.py
+ 1325* vi FinanceBill2025.py
+ 1326* python3 FinanceBill2025.py
+ 1327* vi FinanceBill2025.py
+ 1328* python3 FinanceBill2025.py
+ 1329* vi FinanceBill2025.py
+ 1330* python3 FinanceBill2025.py
+ 1331* pip install pandas
+ 1332* pip3 install pandas
+ 1333* brew install pandas
+ 1334* tmux attach || tmux new
+ 1335* pwd
+ 1336* cd Music
+ 1337* ll
+ 1338* tmux attach || tmux new
+ 1339* mux attach || tmux new
+ 1340* virtualenv opencv
+ 1341* history | grep activate
+ 1342* ll
+ 1343* tmux attach || tmux new
+ 1344* history | grep activate
+ 1345* history | grep virtualenv
+ 1346* ll
+ 1347* cd virtual
+ 1348* ll
+ 1349* cd ..
+ 1350* cd opencv
+ 1351* ll
+ 1352* cd ..
+ 1353* cd python_projects
+ 1354* ll
+ 1355* history | grep activate
+ 1356* source ~/python_projects/002-OpenCV/opencv/bin/activate
+ 1357* cd 002-OpenCV
+ 1358* ll
+ 1359* cd opencv
+ 1360* ll
+ 1361* python3 opencv-001.py
+ 1362* pip install ultralytics
+ 1363* pip install --upgrade pip
+ 1364* python3 opencv-001.py
+ 1365* vi opencv-001.py
+ 1366* tmux attach || tmux new
+ 1367* touch ~/Downloads/aws-deployment-guide-web-app.html
+ 1368* vi ~/Downloads/aws-deployment-guide-web-app.html
+ 1369* vim ~/Downloads/aws-deployment-guide-web-app.html
+ 1370* ll
+ 1371* python3 opencv-002.py
+ 1372* python3 opencv-003-gemini.py
+ 1373* python3 opencv-002-gemini.py
+ 1374* tmux attach || tmux new
+ 1375* clear
+ 1376* python3 opencv-002-gemini.py
+ 1377* deactivate
+ 1378* python3 opencv-002-gemini.py
+ 1379* source ~/python_projects/002-OpenCV/opencv/bin/activate
+ 1380* python3 opencv-003-gemini.py
+ 1381* tmux attach || tmux new
+ 1382* clear
+ 1383* deactivate
+ 1384* clear
+ 1385* cd ~
+ 1386* cd Downloads
+ 1387* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1388* chmod 400 Frankfurt\ Private\ Key/Frankfurt-eu-central-privatekey.pem
+ 1389* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1390* tmux attach || tmux new
+ 1391* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1392* tmux attach || tmux new
+ 1393* clear
+ 1394* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1395* tmux attach || tmux new
+ 1396* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1397* tmux attach || tmux new
+ 1398* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1399* cd D
+ 1400* cd Downloads
+ 1401* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1402* l
+ 1403* clear
+ 1404* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1405* tmux attach || tmux new
+ 1406* scp ubuntu@18.153.209.184:/var/www/surveyapp/index.html ~/Downloads/
+ 1407* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1408* tmux attach || tmux new
+ 1409* clear
+ 1410* scp -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184:/var/www/surveyapp/index.html ~/Downloads
+ 1411* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1412* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.77.158.179
+ 1413* ssh -i Frankfurt-eu-central-privatekey.pem runcloud@3.77.158.179
+ 1414* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@3.77.158.179
+ 1415* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1416* ll
+ 1417* cd Google\ Gemini\ Projects
+ 1418* ll
+ 1419* cd survey_app_final_questionnair
+ 1420* ll
+ 1421* nvim index.html
+ 1422* tmux attach || tmux new
+ 1423* nvim index.html
+ 1424* cd ~
+ 1425* ll
+ 1426* ls -al
+ 1427* nvim .vimrc
+ 1428* cd ~/Downloads/Google\ Gemini\ Projects
+ 1429* ll
+ 1430* nvim index.html
+ 1431* cd survey_app_final_questionnair
+ 1432* nvim index.html
+ 1433* sudo apt update
+ 1434* brew update
+ 1435* brew upgrade
+ 1436* clear
+ 1437* ll
+ 1438* nvim interactive_feedbcak_summary_dashboard.html
+ 1439* tmux attach || tmux new
+ 1440* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1441* cd Downloads
+ 1442* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1443* clear
+ 1444* ssh -i Frankfurt-eu-central-privatekey.pem ubuntu@18.153.209.184
+ 1445* clear
+ 1446* brew update
+ 1447* brew upgrade
+ 1448* ll
+ 1449* nvim
+ 1450* nvim Google\ Gemini\ Projects
+ 1451* code
+ 1452* cd 001-First-Supabase-Project
+ 1453* npm install
+ 1454* sudo apt install npm
+ 1455* brew install npm
+ 1456* npm install
+ 1457* SUPABASE_KEY=your_supabase_anon_key_here
+ 1458* cd /Users/royashoya/Projects/001-First-Supabase-Project
+ 1459* npm install
+ 1460* npm fund
+ 1461* npm start
+ 1462* npx create-next-app@latest photo-share-app\ncd photo-share-app
+ 1463* npm install @supabase/supabase-js react-hook-form react-dropzone
+ 1464* cd photo-share-app
+ 1465* npm install @supabase/supabase-js react-hook-form react-dropzone
+ 1466* npx create-next-app@latest photo-share-app\ncd photo-share-app
+ 1467* npm install @supabase/supabase-js react-hook-form react-dropzone
+ 1468* clear
+ 1469* npx create-next-app@latest photo-share-app\n
+ 1470* cd photo-share-app
+ 1471* npm install @supabase/supabase-js react-hook-form react-dropzone
+ 1472* mkdir lib
+ 1473* touch lib/supabaseClient.js
+ 1474* pwd
+ 1475* touch .env.local
+ 1476* git init
+ 1477* git status
+ 1478* git add .
+ 1479* git commit -m "Add photo upload, OTP verification, and download/consent pages"
+ 1480* npm run dev
+ 1481* rm -rf app
+ 1482* ls -l
+ 1483* ls -la
+ 1484* rm -rf .next
+ 1485* npm run dev
+ 1486* ls -la
+ 1487* rm -rf src/app
+ 1488* rm -rf .next\n
+ 1489* npm run dev
+ 1490* brew update && brew upgrade\n
+ 1491* clear
+ 1492* npm run dev
+ 1493* proceed with all the steps above
+ 1494* cd frontend
+ 1495* npm install papaparse\n
+ 1496* npm install --save-dev @types/papaparse\n
+ 1497* cd ..
+ 1498* cp backend/.env.example ~/Projects/isuzu-mims/backend/.env
+ 1499* pg_ctl status
+ 1500* clear
+ 1501* cd ~/Projects/isuzu-mims
+ 1502* ll
+ 1503* ls -la
+ 1504* nvim README.md
+ 1505* clear
+ 1506* cd backend
+ 1507* lsof -i :8000
+ 1508* kill 41494
+ 1509* lsof -i :8000
+ 1510* mux attach || tmux new
+ 1511* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1512* tmux attach || tmux new
+ 1513* cd Projects/isuzu-mims
+ 1514* ll
+ 1515* nvim README.md
+ 1516* clear
+ 1517* cd backend
+ 1518* ll
+ 1519* python update_user_password.py testuser testpassword
+ 1520* tmux attach || tmux new
+ 1521* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1522* lsof -i :8000
+ 1523* kill 29189
+ 1524* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1525* tmux attach || tmux new
+ 1526* clear
+ 1527* python update_user_password.py testuser testpassword
+ 1528* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1529* python3 update_user_password.py testuser testpassword
+ 1530* cd backend
+ 1531* python3 update_user_password.py testuser testpassword
+ 1532* cd ../frontend
+ 1533* npm run dev
+ 1534* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1535* npm run dev
+ 1536* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1537* npm run dev
+ 1538* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1539* cd backend
+ 1540* npm run dev
+ 1541* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1542* tmux attach || tmux new
+ 1543* python3 -m http.server
+ 1544* cd Desktop
+ 1545* ll
+ 1546* ls 
+ 1547* ls -d
+ 1548* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1549* npm run dev
+ 1550* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1551* npm run dev --port 3005
+ 1552* npm run dev --host 0.0.0.0 --port 3005
+ 1553* history | grep 3005
+ 1554* history | grep 3002
+ 1555* history 
+ 1556* npm run dev
+ 1557* npm run dev -- -p 3005\n\n
+ 1558* uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+ 1559* npm install
+ 1560* mv -rfv index.html landing.html style.css firebase-config.js script.js ~/Projects/isuzu-mims-2/public
+ 1561* mv -fv index.html landing.html style.css firebase-config.js script.js ~/Projects/isuzu-mims-2/public
+ 1562* npm install
+ 1563* npm start
+ 1564* clear
+ 1565* ll
+ 1566* cd Projects/isuzu-mims-2/
+ 1567* ll
+ 1568* cd ..
+ 1569* cd isuzu-mims/backend/
+ 1570* ll
+ 1571* pwd
+ 1572* nvim 
+ 1573* cd
+ 1574* pwd
+ 1575* ll
+ 1576* cd Projects/
+ 1577* ll
+ 1578* mkdir test_warp
+ 1579* cd test_warp/
+ 1580* chmod +x /Users/royashoya/uuid_generator.py
+ 1581* python3 /Users/royashoya/uuid_generator.py --help
+ 1582* python3 /Users/royashoya/uuid_generator.py -c 3
+ 1583* cd ..
+ 1584* ll
+ 1585* cd ..
+ 1586* ll
+ 1587* mv -fv uuid_generator.py ~/Projects/test_warp/
+ 1588* ll
+ 1589* cd Projects/test_warp/
+ 1590* ll
+ 1591* touch README.txt
+ 1592* nvim README.txt 
+ 1593* git status
+ 1594* git init
+ 1595* ls -la
+ 1596* gh --version
+ 1597* brew install gh
+ 1598* gh auth login
+ 1599* gh repo create test_warp --public --description "Test project for Warp terminal" --clone=false
+ 1600* git add .
+ 1601* git commit -m "Initial commit with README and UUID generator"
+ 1602* git remote add origin https://github.com/royashoya/test_warp.git
+ 1603* git push -u origin main
+ 1604* tmux attach || tmux new
+ 1605* brew update && brew upgrade\n
+ 1606* tmux attach || tmux new
+ 1607* brew update && brew upgrade\n
+ 1608* brew update
+ 1609* git push -u origin main
+ 1610* brew update
+ 1611* brew upgrade
+ 1612* ll
+ 1613* python3 /Users/royashoya/uuid_generator.py -c 3
+ 1614* python3 /Users/royashoya/Projects/test_warp/uuid_generator.py -c 3
+ 1615* python3 /Users/royashoya/Projects/test_warp/uuid_generator.py -c 100
+ 1616* python3 /Users/royashoya/Projects/test_warp/uuid_generator.py -i
+ 1617* nvim /Users/royashoya/Projects/test_warp/uuid_generator.py
+ 1618* ll
+ 1619* git status
+ 1620* git add .
+ 1621* git commit -m "Update UUID generator and add documentation"
+ 1622* git push
+ 1623* nvim /Users/royashoya/Projects/test_warp/uuid_generator.py
+ 1624* ll
+ 1625* git status
+ 1626* git add .
+ 1627* git commit -m "update"
+ 1628* git push
+ 1629* python3 /Users/royashoya/Projects/test_warp/uuid_generator.py -i
+ 1630* git status
+ 1631* git add .
+ 1632* git commit -m "Update UUID generator with Timing and add documentation"
+ 1633* git push
+ 1634* exit
+ 1635* clear
+ 1636* pwd
+ 1637* cd Projects/
+ 1638* mkdir python_SMS
+ 1639* CD python_SMS/
+ 1640* python3 -m venv python_SMS
+ 1641* source python_SMS/bin/activate
+ 1642* cd python_SMS/
+ 1643* ll
+ 1644* ls -al
+ 1645* ls -la /Users/royashoya/sms_application.py
+ 1646* ls -la /Users/royashoya/ | grep -E "(sms|SMS|phone|requirements)"
+ 1647* mv -rfv ~/sms_application.py ~/SMS_README.md ~/requirements.txt ~/phone_numbers.txt ~/Projects/python_SMS/
+ 1648* mv -fv ~/sms_application.py ~/SMS_README.md ~/requirements.txt ~/phone_numbers.txt ~/Projects/python_SMS/
+ 1649* ls
+ 1650* ll
+ 1651* python sms_application.py -i
+ 1652* pip install -r requirements.txt\n
+ 1653* chmod +x sms_application.py
+ 1654* python sms_application.py -i
+ 1655* nvim sms_application.py
+ 1656* python sms_application.py
+ 1657* python sms_application.py -i
+ 1658* python sms_application.py --balance
+ 1659* python3 sms_application.py --balance
+ 1660* find /Users/royashoya -name "sms_application.py" -type f 2>/dev/null
+ 1661* python3 sms_application.py -i
+ 1662* cd /Users/royashoya/Projects/python_SMS && python3 sms_application.py -t "+254721446106" -m "Test message" -v
+ 1663* cd /Users/royashoya/Projects/python_SMS && python3 debug_sms.py
+ 1664* cd /Users/royashoya/Projects/python_SMS && python3 sms_application.py -t "+254721446106" -m "Test message" -v
+ 1665* cd /Users/royashoya/Projects/python_SMS && python3 debug_sms.py
+ 1666* cd /Users/royashoya/Projects/python_SMS && python3 sms_application.py --balance
+ 1667* LL
+ 1668* ll
+ 1669* python3 sms_application.py -t "+254721446106" -m "Your message here" -v
+ 1670* python3 sms_application.py -i
+ 1671* ll
+ 1672* nvim debug_sms.py 
+ 1673* python3 debug_sms.py 
+ 1674* cd /Users/royashoya/Projects/python_SMS && git status
+ 1675* cd /Users/royashoya/Projects/python_SMS && git init
+ 1676* cd /Users/royashoya/Projects/python_SMS && git add .
+ 1677* cd /Users/royashoya/Projects/python_SMS && git status
+ 1678* cd /Users/royashoya/Projects/python_SMS && git reset
+ 1679* cd /Users/royashoya/Projects/python_SMS && git add .gitignore README.md SMS_FIX_SUMMARY.md config_template.py debug_sms.py requirements.txt sms_application.py
+ 1680* cd /Users/royashoya/Projects/python_SMS && git status
+ 1681* cd /Users/royashoya/Projects/python_SMS && git commit -m "Initial commit: SMS application with Infobip API integration\n\nFeatures:\n- Single and bulk SMS sending\n- Interactive and CLI modes\n- Secure credential management\n- Delivery reports and balance checking\n- Fixed 400 Bad Request error\n- Comprehensive documentation"
+ 1682* cd /Users/royashoya/Projects/python_SMS && git config --global user.name
+ 1683* cd /Users/royashoya/Projects/python_SMS && git config --global user.email
+ 1684* which gh
+ 1685* gh auth status
+ 1686* cd /Users/royashoya/Projects/python_SMS && gh repo create python_SMS --public --description "SMS Application using Infobip API - Send single/bulk SMS with Python. Features interactive & CLI modes, secure credential management, delivery reports, and error handling." --push
+ 1687* cd /Users/royashoya/Projects/python_SMS && gh repo create python_SMS --public --description "SMS Application using Infobip API - Send single/bulk SMS with Python. Features interactive & CLI modes, secure credential management, delivery reports, and error handling."
+ 1688* cd /Users/royashoya/Projects/python_SMS && git remote add origin https://github.com/royashoya/python_SMS.git
+ 1689* cd /Users/royashoya/Projects/python_SMS && git branch -M main
+ 1690* cd /Users/royashoya/Projects/python_SMS && git push -u origin main
+ 1691* cd /Users/royashoya/Projects/python_SMS && gh repo view
+ 1692* cd /Users/royashoya/Projects/python_SMS && git status
+ 1693* python3 debug_sms.py
+ 1694* ll
+ 1695* python3 sms_application.py -i
+ 1696* cd /Users/royashoya/Projects/python_SMS && python3 sms_application.py --balance
+ 1697* ll
+ 1698* python3 sms_application.py --balance
+ 1699* cd /Users/royashoya/Projects/python_SMS && python3 -c "\nimport requests\nfrom config import API_KEY, API_BASE_URL\n\n# Test basic API connectivity and permissions\nheaders = {\n    'Authorization': f'App {API_KEY}',\n    'Content-Type': 'application/json',\n    'Accept': 'application/json'\n}\n\nprint('🔍 Testing API Key and Permissions...')\nprint(f'Base URL: {API_BASE_URL}')\nprint(f'API Key: {API_KEY[:20]}...{API_KEY[-10:]}')\nprint('\\n' + '='*50)\n\n# Test 1: Try to access account info (simpler endpoint)\ntry:\n    print('\\n1. Testing account info endpoint...')\n    response = requests.get(f'{API_BASE_URL}/account/1', headers=headers, timeout=10)\n    print(f'   Status: {response.status_code}')\n    if response.status_code == 200:\n        print('   ✅ Account info accessible')\n        data = response.json()\n        print(f'   Account ID: {data.get(\"accountId\", \"N/A\")}')\n        print(f'   Account Name: {data.get(\"accountName\", \"N/A\")}')\n    else:\n        print(f'   ❌ Failed: {response.status_code} - {response.text}')\nexcept Exception as e:\n    print(f'   ❌ Error: {str(e)}')\n\n# Test 2: Try balance endpoint with different path\ntry:\n    print('\\n2. Testing balance endpoint...')\n    response = requests.get(f'{API_BASE_URL}/account/1/balance', headers=headers, timeout=10)\n    print(f'   Status: {response.status_code}')\n    if response.status_code == 200:\n        print('   ✅ Balance accessible')\n        data = response.json()\n        print(f'   Balance: {data}')\n    else:\n        print(f'   ❌ Failed: {response.status_code}')\n        print(f'   Response: {response.text}')\nexcept Exception as e:\n    print(f'   ❌ Error: {str(e)}')\n\n# Test 3: Check API key format and basic SMS send capability\ntry:\n    print('\\n3. Testing SMS send capability (dry run)...')\n    test_payload = {\n        'messages': [{\n            'from': 'InfoSMS',\n            'destinations': [{'to': '+1234567890'}],\n            'text': 'Test message'\n        }]\n    }\n    \n    # Don't actually send, just test if the endpoint is accessible\n    response = requests.post(f'{API_BASE_URL}/sms/2/text/advanced', \n                           json=test_payload, headers=headers, timeout=10)\n    print(f'   Status: {response.status_code}')\n    \n    if response.status_code in [200, 400]:  # 400 might be expected due to fake number\n        print('   ✅ SMS endpoint accessible')\n        if response.status_code == 400:\n            print('   Note: 400 error expected due to test phone number')\n    else:\n        print(f'   Status indicates possible permission issue: {response.text}')\n        \nexcept Exception as e:\n    print(f'   ❌ Error: {str(e)}')\n\nprint('\\n' + '='*50)\nprint('\\n📋 Summary:')\nprint('- If account info works but balance fails: Limited API key permissions')\nprint('- If all fail with 403: API key may be invalid or expired')\nprint('- If all fail with network errors: Check API base URL')\n"
+ 1700* cd /Users/royashoya/Projects/python_SMS && python3 -c "\nimport requests\nfrom config import API_KEY, API_BASE_URL, SENDER_ID\n\nheaders = {\n    'Authorization': f'App {API_KEY}',\n    'Content-Type': 'application/json',\n    'Accept': 'application/json'\n}\n\nprint('🔍 API Key Permission Analysis')\nprint('='*50)\n\n# Test what SMS endpoints are available\nsms_endpoints = [\n    '/sms/2/text/advanced',\n    '/sms/1/reports', \n    '/sms/2/text/single',\n    '/sms/1/logs'\n]\n\nprint('\\n📱 SMS Endpoint Accessibility:')\nfor endpoint in sms_endpoints:\n    try:\n        # Use HEAD request to check accessibility without sending data\n        response = requests.head(f'{API_BASE_URL}{endpoint}', headers=headers, timeout=5)\n        if response.status_code in [200, 400, 405]:  # 405 = Method not allowed (but endpoint exists)\n            print(f'   ✅ {endpoint} - Accessible')\n        elif response.status_code == 403:\n            print(f'   ❌ {endpoint} - Forbidden')\n        elif response.status_code == 404:\n            print(f'   ❓ {endpoint} - Not found')\n        else:\n            print(f'   ⚠️  {endpoint} - Status: {response.status_code}')\n    except Exception as e:\n        print(f'   ❌ {endpoint} - Error: {str(e)}')\n\n# Test account endpoints\naccount_endpoints = [\n    '/account/1/balance',\n    '/account/1', \n    '/account/balance',\n    '/accounts/1/balance'\n]\n\nprint('\\n💰 Account Endpoint Accessibility:')\nfor endpoint in account_endpoints:\n    try:\n        response = requests.head(f'{API_BASE_URL}{endpoint}', headers=headers, timeout=5)\n        if response.status_code in [200, 400]:\n            print(f'   ✅ {endpoint} - Accessible')\n        elif response.status_code == 403:\n            print(f'   ❌ {endpoint} - Forbidden (Permission issue)')\n        elif response.status_code == 404:\n            print(f'   ❓ {endpoint} - Not found')\n        else:\n            print(f'   ⚠️  {endpoint} - Status: {response.status_code}')\n    except Exception as e:\n        print(f'   ❌ {endpoint} - Error: {str(e)}')\n\nprint('\\n' + '='*50)\nprint('\\n📊 Diagnosis:')\nprint('✅ SMS sending: WORKING (your primary use case)')\nprint('❌ Balance checking: RESTRICTED (API key limitation)')\nprint('\\n💡 Recommendation:')\nprint('- Your API key works perfectly for SMS sending')\nprint('- Balance/account features require different permissions')\nprint('- Contact Infobip support to enable account access if needed')\nprint('- For now, disable balance checking in the application')\n"
+ 1701* cd /Users/royashoya/Projects/python_SMS && python3 sms_application.py -t "+254721446106" -m "API permission test - SMS working correctly" -v
+ 1702* cd /Users/royashoya/Projects/python_SMS && python3 sms_application.py --balance
+ 1703* cd /Users/royashoya/Projects/python_SMS && python3 -c "\nfrom config import API_KEY, API_BASE_URL, SENDER_ID\nfrom sms_application import SMSClient\n\nclient = SMSClient(API_KEY, API_BASE_URL, SENDER_ID)\ntry:\n    balance = client.check_account_balance()\n    print('Balance response:', balance)\nexcept Exception as e:\n    print('Error:', str(e))\n    print('Error type:', type(e).__name__)\n"
+ 1704* git status
+ 1705  ll
+ 1706  cd Projects/
+ 1707  ll
+ 1708  cd python_SMS/
+ 1709  source python_SMS/bin/activate
+ 1710  ./python_SMS/bin/activate
+ 1711  cd ..
+ 1712  source python_SMS/bin/activate
+ 1713  cd python_SMS/
+ 1714  ll
+ 1715* cd Projects/python_SMS/
+ 1716* cd ..
+ 1717* source python_SMS/bin/activate
+ 1718* cd python_SMS/
+ 1719  git status
+ 1720  git add sms_application.py SMS_README.md
+ 1721  git commit -m "Updated error handlingto be more graceful"
+ 1722  git push
+ 1723  git status
+ 1724  ls -la
+ 1725  git add phone_numbers.txt
+ 1726  git add -f phone_numbers.txt
+ 1727  git commit -m "Add sample phone numbers text file for bulk SMS testing"
+ 1728  git push origin main
+ 1729  mkdir -p templates static/css static/js
+ 1730* cd templates/
+ 1731* ll
+ 1732* cat base.html
+ 1733* nvim base.html 
+ 1734* ll
+ 1735  ls -la templates/
+ 1736* ll
+ 1737* cd ..
+ 1738* ll
+ 1739* cd static/
+ 1740* ll
+ 1741* cd css/
+ 1742* ll
+ 1743* cat style.css
+ 1744* nvim style.css
+ 1745* cd ../..
+ 1746* ll
+ 1747* pip install -r requirements.txt\n
+ 1748* python3 app.py
+ 1749  find . -type f -name "*.py" -o -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.txt" -o -name "*.md" | grep -E "\.(py|html|css|js|txt|md)$" | sort
+ 1750  retry again
+ 1751  which brew
+ 1752  brew install retry
+ 1753  retry --help
+ 1754  retry --times=1 -- echo "Hello, retry works\n\nretry --times=3 --delay=1 -- echo "Hello, retry works\n\n\n\n\n\n\nhello
+ 1755  which gh
+ 1756  gh auth status
+ 1757  git status
+ 1758  git remote -v
+ 1759  gh repo create sms-web-application --private --description "Modern SMS Web Application with Flask and Infobip API - Features bulk SMS, file upload, delivery reports, and responsive UI"
+ 1760  git add .
+ 1761  git commit -m "🚀 Initial commit: Complete SMS Web Application\n\n✨ Features:\n- Modern Flask web interface with Bootstrap 5\n- Single SMS sending with real-time feedback\n- Bulk SMS with file upload support (.txt/.csv)\n- Interactive delivery reports with filtering\n- Account balance monitoring\n- Responsive mobile-friendly design\n- RESTful API endpoints\n- Comprehensive error handling and validation\n- Security features and input sanitization\n\n📁 Structure:\n- Flask web application (app.py)\n- HTML templates with responsive design\n- Custom CSS and JavaScript\n- Command-line interface (sms_application.py)\n- Configuration management\n- Sample data and documentation\n\n🛡️ Security:\n- Secure file handling\n- Input validation\n- XSS protection\n- API credential protection\n\n📚 Documentation:\n- Comprehensive README with setup guide\n- API reference\n- Troubleshooting guide\n- Development and deployment instructions"
+ 1762  git remote add webapp https://github.com/royashoya/sms-web-application.git
+ 1763  git remote -v
+ 1764  git push webapp main
+ 1765  cat .gitignore
+ 1766  mkdir -p .github
+ 1767  git add .
+ 1768  git commit -m "📚 Add comprehensive project documentation\n\n✨ Added:\n- LICENSE (MIT License)\n- CONTRIBUTING.md with development guidelines\n- SECURITY.md with security policy and reporting procedures\n- .github/SECURITY.md for GitHub security features\n\n📋 Documentation includes:\n- Development workflow and setup instructions\n- Coding standards and style guidelines\n- Bug report and feature request templates\n- Security best practices and vulnerability reporting\n- Contribution recognition and licensing information\n\n🔒 Security Features:\n- Vulnerability reporting procedures\n- Security best practices for users and developers\n- Response timeline and contact information\n- Known security considerations and mitigations"
+ 1769  git push webapp main
+ 1770  gh repo view royashoya/sms-web-application
+ 1771  gh repo view --web royashoya/sms-web-application
+ 1772  gh release create v2.0.0 --title "🚀 SMS Web Application v2.0.0 - Complete Web Interface" --notes "## 🌟 Major Release: Complete Web Application\n\n### ✨ New Features\n- **Modern Web Interface**: Complete Flask web application with Bootstrap 5\n- **Dashboard**: Intuitive dashboard with feature overview\n- **Single SMS**: Send SMS to individual recipients\n- **Bulk SMS**: Send to multiple recipients with two input methods:\n  - Manual text input (one number per line)\n  - File upload support (.txt and .csv files)\n- **File Upload**: Drag & drop file upload with progress tracking\n- **Delivery Reports**: Interactive reports with filtering options\n- **Account Balance**: Monitor Infobip account balance and usage\n- **RESTful API**: Complete API endpoints for programmatic access\n\n### 🎨 User Interface\n- **Responsive Design**: Works perfectly on desktop, tablet, and mobile\n- **Modern UI**: Clean Bootstrap 5 design with professional styling\n- **Real-time Updates**: Live progress bars and status indicators\n- **Interactive Elements**: Modals, toasts, and dynamic content\n- **Mobile-First**: Optimized for mobile usage\n\n### 🛡️ Security & Validation\n- **Input Validation**: Comprehensive phone number and message validation\n- **File Security**: Secure file upload with type and size restrictions\n- **XSS Protection**: HTML sanitization and secure form handling\n- **API Security**: Credentials never exposed to frontend\n- **Error Handling**: Graceful error handling with user-friendly messages\n\n### 🔧 Technical Features\n- **Asynchronous Processing**: Non-blocking file uploads and SMS sending\n- **Progress Tracking**: Real-time progress indicators for bulk operations\n- **Detailed Analytics**: Success rates, delivery statistics, and timing\n- **Error Recovery**: Robust error handling with detailed error messages\n- **Performance Optimized**: Efficient file processing and API calls\n\n### 📚 Documentation\n- **Comprehensive README**: Complete setup and usage guide\n- **API Documentation**: Full API reference with examples\n- **Contributing Guidelines**: Development workflow and standards\n- **Security Policy**: Vulnerability reporting and best practices\n\n### 🚀 Getting Started\n1. Clone the repository\n2. Install dependencies: \`pip install -r requirements.txt\`\n3. Configure API credentials: \`cp config_template.py config.py\`\n4. Run the web app: \`python app.py\`\n5. Access at: \`http://localhost:5000\`\n\n### 📊 Statistics\n- **12 HTML templates** with responsive design\n- **2 CSS files** with custom styling\n- **1 JavaScript file** with utilities\n- **15+ API endpoints** for complete functionality\n- **4 main features** (Single SMS, Bulk SMS, Reports, Balance)\n- **100% mobile responsive**\n\n### 🔧 Breaking Changes\n- This is a new web application interface\n- Command-line interface remains fully functional\n- New dependency: Flask and Werkzeug\n\n### 🐛 Bug Fixes\n- Enhanced error handling for API calls\n- Improved phone number validation\n- Better file upload error messages\n- Fixed character counting edge cases\n\n### 📝 Technical Details\n- **Flask 2.0+**: Modern Python web framework\n- **Bootstrap 5.1+**: Latest UI framework\n- **Responsive Design**: Mobile-first approach\n- **Progressive Enhancement**: Works without JavaScript\n- **Accessibility**: WCAG compliant design\n- **Performance**: Optimized asset loading\n\n---\n\n**Full Changelog**: https://github.com/royashoya/sms-web-application/commits/v2.0.0"
+ 1773  gh repo set-default royashoya/sms-web-application
+ 1774  gh release create v2.0.0 --title "🚀 SMS Web Application v2.0.0 - Complete Web Interface" --notes "## 🌟 Major Release: Complete Web Application\n\n### ✨ New Features\n- **Modern Web Interface**: Complete Flask web application with Bootstrap 5\n- **Dashboard**: Intuitive dashboard with feature overview\n- **Single SMS**: Send SMS to individual recipients\n- **Bulk SMS**: Send to multiple recipients with file upload support\n- **Delivery Reports**: Interactive reports with filtering options\n- **Account Balance**: Monitor Infobip account balance and usage\n- **RESTful API**: Complete API endpoints for programmatic access\n\n### 🎨 User Interface\n- **Responsive Design**: Works perfectly on desktop, tablet, and mobile\n- **Modern UI**: Clean Bootstrap 5 design with professional styling\n- **Real-time Updates**: Live progress bars and status indicators\n\n### 🛡️ Security & Validation\n- **Input Validation**: Comprehensive phone number and message validation\n- **File Security**: Secure file upload with type and size restrictions\n- **XSS Protection**: HTML sanitization and secure form handling\n\n### 🚀 Getting Started\n1. Clone the repository\n2. Install dependencies: pip install -r requirements.txt\n3. Configure API credentials: cp config_template.py config.py\n4. Run the web app: python app.py\n5. Access at: http://localhost:5000"
+ 1775  tree -a -I '__pycache__|*.pyc|bin|include|lib|share|pyvenv.cfg' --charset ascii
+ 1776* ll
+ 1777* nvim app.py
+ 1778  mkdir -p .github/workflows
+ 1779* ll
+ 1780  git add .
+ 1781  git commit -m "🔄 Add CI/CD and Deployment Infrastructure\n\n✨ CI/CD Features:\n- GitHub Actions workflow for automated testing\n- Multi-Python version testing (3.8-3.11)\n- Security scanning with Bandit and Safety\n- Code formatting checks with Black and flake8\n- Lighthouse performance testing\n- Automated deployment workflows for multiple platforms\n\n🚀 Deployment Options:\n- Docker containerization with multi-stage builds\n- Docker Compose for local development\n- Heroku deployment configuration\n- AWS Elastic Beanstalk setup\n- DigitalOcean App Platform support\n- Google Cloud Platform integration\n- Traditional VPS/server deployment\n\n\U0001f9ea Testing Infrastructure:\n- Comprehensive test suite with pytest\n- Flask app testing with test client\n- SMS client unit tests\n- File upload and validation tests\n- Mocked API responses for reliable testing\n\n🔒 Security & Monitoring:\n- Security headers implementation\n- Environment variable configuration\n- Health check endpoints\n- Logging and monitoring setup\n- Performance optimization guides\n\n📚 Documentation:\n- Complete deployment guide with step-by-step instructions\n- Platform-specific configuration examples\n- Troubleshooting guides and common issues\n- Security checklists and best practices"
+ 1782  git push webapp main
+ 1783  git add . && git commit -m "📊 Add Monitoring and Team Collaboration Features\n\n✨ Application Monitoring:\n- Health check endpoint (/health) for uptime monitoring\n- Metrics endpoint (/metrics) with CPU, memory, and performance data\n- System monitoring with psutil integration\n\n👥 Team Collaboration:\n- GitHub issue templates for bug reports\n- Structured workflow for contributors\n- Code review and branch protection guidelines\n\n🔧 Enhanced Analytics:\n- Application performance metrics\n- Resource usage monitoring\n- Health status reporting\n- Deployment monitoring hooks"
+ 1784  git push webapp main
+ 1785* ll
+ 1786* tree
+ 1787* tree -ad
+ 1788  git status
+ 1789  git add ARCHITECTURE.md
+ 1790  git commit -m "📐 Add comprehensive SMS Web Application architecture documentation\n\n- Complete system architecture with visual ASCII diagrams\n- High-level and component architecture breakdowns\n- Data flow diagrams for request processing and file uploads\n- RESTful API design with request/response schemas\n- Database architecture with entity relationships\n- Multi-layered security architecture with implementation examples\n- Container and Kubernetes deployment configurations\n- Monitoring and scalability architecture strategies\n- Technology stack matrix with version requirements\n- Integration patterns for external services\n- Future roadmap and evolution considerations\n\nThis comprehensive architecture guide provides the foundation for\nunderstanding, implementing, and scaling the SMS Web Application."
+ 1791  git push origin main
+ 1792  git pull origin main
+ 1793  git remote -v
+ 1794  git push webapp main
+ 1795  history | tail -20 > /Users/royashoya/Projects/python_SMS/session_commands.txt
+ 1796* ll
+ 1797* nvim sms_application.py
+ 1798* nvim session_commands.txt
+ 1799* cat session_commands.txt
+ 1800* nvim session_commands.txt
+ 1801  history > /Users/royashoya/Projects/python_SMS/session_commands.txt
+ 1802* nvim session_commands.txt

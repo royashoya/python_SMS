@@ -38,12 +38,12 @@ RUN cp config_template.py config.py
 USER appuser
 
 # Expose port
-EXPOSE 5000
+EXPOSE 5001
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:5000/health || exit 1
+    CMD curl -f http://localhost:5001/health || exit 1
 
 # Run with gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "--timeout", "30", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5001", "--workers", "4", "--timeout", "30", "app:app"]
 

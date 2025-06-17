@@ -41,12 +41,12 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The web application will be available at: `http://localhost:5000`
+The web application will be available at: `http://localhost:5001`
 
 ## Usage
 
 ### Dashboard
-- Navigate to `http://localhost:5000` to access the main dashboard
+- Navigate to `http://localhost:5001` to access the main dashboard
 - Use the navigation menu to access different features
 
 ### Single SMS
@@ -165,7 +165,7 @@ To run in development mode with debug enabled:
 
 ```python
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)
 ```
 
 ### Production Deployment

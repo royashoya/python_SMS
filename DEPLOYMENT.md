@@ -35,7 +35,7 @@ docker build -t sms-web-app:latest .
 # Run with environment variables
 docker run -d \
   --name sms-web-app \
-  -p 80:5000 \
+  -p 80:5001 \
   -e INFOBIP_API_KEY="your-api-key" \
   -e INFOBIP_SENDER_ID="your-sender-id" \
   -e INFOBIP_BASE_URL="https://your-api.api.infobip.com" \
@@ -60,7 +60,7 @@ docker run -d \
      github:
        repo: royashoya/sms-web-application
        branch: main
-     run_command: gunicorn --bind 0.0.0.0:5000 app:app
+     run_command: gunicorn --bind 0.0.0.0:5001 app:app
      environment_slug: python
      instance_count: 1
      instance_size_slug: basic-xxs
@@ -199,7 +199,7 @@ docker run -d \
    Group=smsapp
    WorkingDirectory=/home/smsapp/sms-web-application
    Environment="PATH=/home/smsapp/sms-web-application/venv/bin"
-   ExecStart=/home/smsapp/sms-web-application/venv/bin/gunicorn --bind 127.0.0.1:5000 app:app
+   ExecStart=/home/smsapp/sms-web-application/venv/bin/gunicorn --bind 127.0.0.1:5001 app:app
    Restart=always
    
    [Install]
@@ -213,7 +213,7 @@ docker run -d \
        server_name yourdomain.com;
    
        location / {
-           proxy_pass http://127.0.0.1:5000;
+           proxy_pass http://127.0.0.1:5001;
            proxy_set_header Host $host;
            proxy_set_header X-Real-IP $remote_addr;
            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -331,7 +331,7 @@ UPLOAD_FOLDER=uploads
 
 1. **Gunicorn Configuration** (`gunicorn.conf.py`):
    ```python
-   bind = "0.0.0.0:5000"
+   bind = "0.0.0.0:5001"
    workers = 4
    worker_class = "sync"
    worker_connections = 1000
@@ -360,7 +360,7 @@ UPLOAD_FOLDER=uploads
 
 1. **Port Already in Use**:
    ```bash
-   sudo lsof -i :5000
+   sudo lsof -i :5001
    sudo kill -9 <PID>
    ```
 
