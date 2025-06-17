@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block title %}Account Balance - SMS Application{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-wallet me-2"></i>Account Balance
+        </h1>
+        <p class="text-muted">View your current account balance and usage information.</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i>Balance Information</h5>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary btn-sm" onclick="checkBalance()">
+                            <i class="fas fa-sync-alt me-1"></i>Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="loadingBalance" class="text-center py-4" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2 text-muted">Checking account balance...</p>
+                </div>
+                
+                <div id="balanceContent">
+                    <div class="text-center py-4 text-muted">
+                        <i class="fas fa-wallet fa-3x mb-3"></i>
+                        <p>Click "Refresh" to check your account balance</p>
+                    </div>
+                </div>
+                
+                <div id="balanceError" class="alert alert-warning" style="display: none;">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Note:</strong> Balance checking requires additional API permissions. 
+                    Contact Infobip support to enable account access features. 
+                    SMS sending functionality is not affected.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Usage Tips -->
+        <div class="card border-0 shadow-sm mt-4">
+            <div class="card-header bg-transparent">
+                <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Usage Tips</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-primary"><i class="fas fa-chart-line me-2"></i>Monitor Usage</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Check balance regularly</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Monitor delivery reports</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Track message costs</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-primary"><i class="fas fa-piggy-bank me-2"></i>Cost Optimization</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Use shorter messages when possible</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Validate phone numbers</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Remove duplicate numbers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Check balance on page load
+document.addEventListener('DOMContentLoaded', function() {
+    checkBalance();
+});
+
+async function checkBalance() {
+    const loadingDiv = document.getElementById('loadingBalance');
+    const contentDiv = document.getElementById('balanceContent');
+    const errorDiv = document.getElementById('balanceError');
+    
+    // Show loading state
+    loadingDiv.style.display = 'block';
+    contentDiv.style.display = 'none';
+    errorDiv.style.display = 'none';
+    
+    try {
+        const response = await fetch('/api/balance');
+        const result = await response.json();
+        
+        if (result.success) {
+            displayBalance(result.balance);
+            contentDiv.style.display = 'block';
+        } else {
+            throw new Error(result.error || 'Failed to check balance');
+        }
+        
+    } catch (error) {
+        if (error.message.includes('additional API permissions')) {
+            errorDiv.style.display = 'block';
+        } else {
+            contentDiv.innerHTML = `
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Error checking balance: ${error.message}
+                </div>
+            `;
+            contentDiv.style.display = 'block';
+        }
+    } finally {
+        loadingDiv.style.display = 'none';
+    }
+}
+
+function displayBalance(balance) {
+    const contentDiv = document.getElementById('balanceContent');
+    
+    const balanceHtml = `
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 bg-primary text-white">
+                    <div class="card-body text-center">
+                        <h2 class="display-4 mb-0">
+                            <i class="fas fa-coins me-2"></i>
+                            ${balance.amount || 'N/A'}
+                        </h2>
+                        <p class="lead mb-0">${balance.currency || ''}</p>
+                        <small class="opacity-75">Current Balance</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <h6>Balance Details:</h6>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td><strong>Amount:</strong></td>
+                                <td>${balance.amount || 'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Currency:</strong></td>
+                                <td>${balance.currency || 'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Last Updated:</strong></td>
+                                <td>${new Date().toLocaleString()}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-info mt-3">
+            <i class="fas fa-info-circle me-2"></i>
+            Balance information is fetched directly from your Infobip account. 
+            Updates may take a few minutes to reflect recent usage.
+        </div>
+    `;
+    
+    contentDiv.innerHTML = balanceHtml;
+}
+</script>
+{% endblock %}
+

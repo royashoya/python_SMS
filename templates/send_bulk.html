@@ -1,0 +1,405 @@
+{% extends "base.html" %}
+
+{% block title %}Send Bulk SMS - SMS Application{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-broadcast-tower me-2"></i>Send Bulk SMS
+        </h1>
+        <p class="text-muted">Send SMS messages to multiple recipients at once.</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <form id="bulkSmsForm">
+                    <!-- Method Selection -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h5 class="mb-3"><i class="fas fa-users me-2"></i>Choose Input Method</h5>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="inputMethod" id="manualInput" value="manual" checked>
+                                <label class="btn btn-outline-primary" for="manualInput">
+                                    <i class="fas fa-keyboard me-1"></i>Manual Input
+                                </label>
+                                
+                                <input type="radio" class="btn-check" name="inputMethod" id="fileUpload" value="file">
+                                <label class="btn btn-outline-primary" for="fileUpload">
+                                    <i class="fas fa-upload me-1"></i>Upload File
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Manual Input Section -->
+                    <div id="manualSection">
+                        <div class="mb-3">
+                            <label for="phoneNumbers" class="form-label">
+                                <i class="fas fa-phone me-1"></i>Phone Numbers
+                            </label>
+                            <textarea class="form-control" id="phoneNumbers" rows="6" 
+                                      placeholder="Enter phone numbers (one per line):
++1234567890
++1987654321
++254700000000"></textarea>
+                            <div class="form-text">
+                                Enter one phone number per line with country code. Maximum 100 numbers.
+                            </div>
+                            <div class="mt-2">
+                                <small id="phoneCount" class="text-muted">0 numbers entered</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- File Upload Section -->
+                    <div id="fileSection" style="display: none;">
+                        <div class="mb-3">
+                            <label for="phoneFile" class="form-label">
+                                <i class="fas fa-file me-1"></i>Upload Phone Numbers File
+                            </label>
+                            <input type="file" class="form-control" id="phoneFile" accept=".txt,.csv">
+                            <div class="form-text">
+                                Upload a .txt or .csv file with phone numbers (one per line). Maximum 16MB.
+                            </div>
+                        </div>
+                        
+                        <div id="uploadProgress" style="display: none;">
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div id="uploadedNumbers" style="display: none;">
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle me-2"></i>
+                                <span id="uploadedCount">0</span> phone numbers loaded successfully!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sender ID -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="bulkSenderId" class="form-label">
+                                <i class="fas fa-user me-1"></i>Sender ID (Optional)
+                            </label>
+                            <input type="text" class="form-control" id="bulkSenderId" 
+                                   placeholder="Your Name or Number">
+                            <div class="form-text">
+                                Leave blank to use default sender ID
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Message -->
+                    <div class="mb-3">
+                        <label for="bulkMessage" class="form-label">
+                            <i class="fas fa-comment me-1"></i>Message
+                        </label>
+                        <textarea class="form-control" id="bulkMessage" rows="4" 
+                                  placeholder="Type your SMS message here..." required maxlength="1600"></textarea>
+                        <div class="form-text d-flex justify-content-between">
+                            <span>SMS messages longer than 160 characters may be split into multiple parts</span>
+                            <span id="bulkCharCount">0/1600 characters</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-outline-secondary me-md-2" onclick="clearBulkForm()">
+                            <i class="fas fa-eraser me-1"></i>Clear
+                        </button>
+                        <button type="submit" class="btn btn-success" id="bulkSendBtn">
+                            <i class="fas fa-broadcast-tower me-1"></i>Send Bulk SMS
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Results Modal -->
+<div class="modal fade" id="bulkResultsModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bulkResultsModalTitle">
+                    <i class="fas fa-info-circle me-2"></i>Bulk SMS Results
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="bulkResultsModalBody">
+                <!-- Results will be populated here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='{{ url_for('reports') }}'">
+                    <i class="fas fa-chart-bar me-1"></i>View Detailed Reports
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let uploadedPhoneNumbers = [];
+
+// Input method toggle
+document.querySelectorAll('input[name="inputMethod"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+        if (this.value === 'manual') {
+            document.getElementById('manualSection').style.display = 'block';
+            document.getElementById('fileSection').style.display = 'none';
+        } else {
+            document.getElementById('manualSection').style.display = 'none';
+            document.getElementById('fileSection').style.display = 'block';
+        }
+    });
+});
+
+// Character counter
+document.getElementById('bulkMessage').addEventListener('input', function() {
+    const charCount = this.value.length;
+    document.getElementById('bulkCharCount').textContent = `${charCount}/1600 characters`;
+    
+    if (charCount > 160) {
+        document.getElementById('bulkCharCount').classList.add('text-warning');
+    } else {
+        document.getElementById('bulkCharCount').classList.remove('text-warning');
+    }
+});
+
+// Phone numbers counter
+document.getElementById('phoneNumbers').addEventListener('input', function() {
+    const lines = this.value.split('\n').filter(line => line.trim() !== '');
+    document.getElementById('phoneCount').textContent = `${lines.length} numbers entered`;
+});
+
+// File upload handler
+document.getElementById('phoneFile').addEventListener('change', async function() {
+    const file = this.files[0];
+    if (!file) return;
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    const progressDiv = document.getElementById('uploadProgress');
+    const progressBar = progressDiv.querySelector('.progress-bar');
+    const uploadedDiv = document.getElementById('uploadedNumbers');
+    
+    progressDiv.style.display = 'block';
+    uploadedDiv.style.display = 'none';
+    
+    try {
+        const response = await fetch('/api/upload-phones', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            uploadedPhoneNumbers = result.phone_numbers;
+            document.getElementById('uploadedCount').textContent = result.count;
+            uploadedDiv.style.display = 'block';
+            progressBar.style.width = '100%';
+        } else {
+            throw new Error(result.error || 'Upload failed');
+        }
+        
+    } catch (error) {
+        alert(`Upload error: ${error.message}`);
+        progressBar.style.width = '0%';
+    } finally {
+        setTimeout(() => {
+            progressDiv.style.display = 'none';
+        }, 1000);
+    }
+});
+
+// Form submission
+document.getElementById('bulkSmsForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const inputMethod = document.querySelector('input[name="inputMethod"]:checked').value;
+    const message = document.getElementById('bulkMessage').value.trim();
+    const senderId = document.getElementById('bulkSenderId').value.trim();
+    const sendBtn = document.getElementById('bulkSendBtn');
+    
+    let phoneNumbers = [];
+    
+    if (inputMethod === 'manual') {
+        const phoneText = document.getElementById('phoneNumbers').value.trim();
+        phoneNumbers = phoneText.split('\n').filter(line => line.trim() !== '').map(line => line.trim());
+    } else {
+        phoneNumbers = uploadedPhoneNumbers;
+    }
+    
+    if (phoneNumbers.length === 0) {
+        alert('Please provide phone numbers');
+        return;
+    }
+    
+    if (!message) {
+        alert('Please enter a message');
+        return;
+    }
+    
+    if (phoneNumbers.length > 100) {
+        alert('Maximum 100 phone numbers allowed per batch');
+        return;
+    }
+    
+    // Show loading state
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i>Sending to ' + phoneNumbers.length + ' numbers...';
+    
+    try {
+        const response = await fetch('/api/send-sms', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                phone_numbers: phoneNumbers,
+                message: message,
+                sender: senderId || null
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showBulkResults(result);
+        } else {
+            throw new Error(result.error || 'Unknown error occurred');
+        }
+        
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    } finally {
+        // Reset button
+        sendBtn.disabled = false;
+        sendBtn.innerHTML = '<i class="fas fa-broadcast-tower me-1"></i>Send Bulk SMS';
+    }
+});
+
+function showBulkResults(result) {
+    const modalBody = document.getElementById('bulkResultsModalBody');
+    const modalTitle = document.getElementById('bulkResultsModalTitle');
+    
+    if (result.successful > 0) {
+        modalTitle.innerHTML = '<i class="fas fa-check-circle text-success me-2"></i>Bulk SMS Campaign Completed!';
+        modalTitle.className = 'modal-title text-success';
+    } else {
+        modalTitle.innerHTML = '<i class="fas fa-exclamation-circle text-danger me-2"></i>Bulk SMS Campaign Failed';
+        modalTitle.className = 'modal-title text-danger';
+    }
+    
+    modalBody.innerHTML = `
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card border-0 bg-success text-white">
+                    <div class="card-body text-center">
+                        <h3><i class="fas fa-check-circle"></i> ${result.successful}</h3>
+                        <p class="mb-0">Successful</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-danger text-white">
+                    <div class="card-body text-center">
+                        <h3><i class="fas fa-times-circle"></i> ${result.failed}</h3>
+                        <p class="mb-0">Failed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 bg-primary text-white">
+                    <div class="card-body text-center">
+                        <h3><i class="fas fa-paper-plane"></i> ${result.total_sent}</h3>
+                        <p class="mb-0">Total Sent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h6>Campaign Details:</h6>
+                <ul class="list-unstyled">
+                    <li><strong>Total Recipients:</strong> ${result.total_sent}</li>
+                    <li><strong>Success Rate:</strong> ${((result.successful/result.total_sent)*100).toFixed(1)}%</li>
+                    <li><strong>Duration:</strong> ${result.duration} seconds</li>
+                    ${result.bulk_id ? `<li><strong>Bulk ID:</strong> <code>${result.bulk_id}</code></li>` : ''}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h6>Message Details:</h6>
+                <div class="card border-0 bg-light">
+                    <div class="card-body">
+                        <small class="text-muted">Message sent:</small>
+                        <p class="mb-0 mt-1">${document.getElementById('bulkMessage').value}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        ${result.messages && result.messages.length > 0 ? `
+            <hr>
+            <h6>Individual Results:</h6>
+            <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Phone Number</th>
+                            <th>Status</th>
+                            <th>Message ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${result.messages.map(msg => `
+                            <tr>
+                                <td>${msg.to || 'N/A'}</td>
+                                <td>
+                                    <span class="badge bg-${msg.status?.groupName === 'PENDING' ? 'success' : 'danger'}">
+                                        ${msg.status?.groupName || 'Unknown'}
+                                    </span>
+                                </td>
+                                <td><small>${msg.messageId || 'N/A'}</small></td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
+        ` : ''}
+    `;
+    
+    // Show modal
+    new bootstrap.Modal(document.getElementById('bulkResultsModal')).show();
+}
+
+function clearBulkForm() {
+    document.getElementById('bulkSmsForm').reset();
+    document.getElementById('bulkCharCount').textContent = '0/1600 characters';
+    document.getElementById('bulkCharCount').classList.remove('text-warning');
+    document.getElementById('phoneCount').textContent = '0 numbers entered';
+    document.getElementById('uploadedNumbers').style.display = 'none';
+    document.getElementById('uploadProgress').style.display = 'none';
+    uploadedPhoneNumbers = [];
+    
+    // Reset to manual input
+    document.getElementById('manualInput').checked = true;
+    document.getElementById('manualSection').style.display = 'block';
+    document.getElementById('fileSection').style.display = 'none';
+}
+</script>
+{% endblock %}
+

@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - SMS Application{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-tachometer-alt me-2"></i>SMS Dashboard
+        </h1>
+        <p class="lead">Welcome to your SMS management system. Choose an option below to get started.</p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Send Single SMS Card -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-primary bg-gradient text-white rounded-3 mb-3">
+                    <i class="fas fa-paper-plane fa-2x"></i>
+                </div>
+                <h5 class="card-title">Send Single SMS</h5>
+                <p class="card-text">Send an SMS message to one recipient quickly and easily.</p>
+                <a href="{{ url_for('send_single') }}" class="btn btn-primary">
+                    <i class="fas fa-paper-plane me-1"></i>Send Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Send Bulk SMS Card -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-success bg-gradient text-white rounded-3 mb-3">
+                    <i class="fas fa-broadcast-tower fa-2x"></i>
+                </div>
+                <h5 class="card-title">Send Bulk SMS</h5>
+                <p class="card-text">Send SMS messages to multiple recipients at once.</p>
+                <a href="{{ url_for('send_bulk') }}" class="btn btn-success">
+                    <i class="fas fa-broadcast-tower me-1"></i>Send Bulk
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Reports Card -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-info bg-gradient text-white rounded-3 mb-3">
+                    <i class="fas fa-chart-bar fa-2x"></i>
+                </div>
+                <h5 class="card-title">Delivery Reports</h5>
+                <p class="card-text">View delivery status and reports for sent messages.</p>
+                <a href="{{ url_for('reports') }}" class="btn btn-info">
+                    <i class="fas fa-chart-bar me-1"></i>View Reports
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Balance Card -->
+    <div class="col-md-6 col-xl-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="feature-icon bg-warning bg-gradient text-white rounded-3 mb-3">
+                    <i class="fas fa-wallet fa-2x"></i>
+                </div>
+                <h5 class="card-title">Account Balance</h5>
+                <p class="card-text">Check your current account balance and usage.</p>
+                <a href="{{ url_for('balance') }}" class="btn btn-warning">
+                    <i class="fas fa-wallet me-1"></i>Check Balance
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats Row -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h3 class="mb-4">
+            <i class="fas fa-info-circle me-2"></i>Quick Information
+        </h3>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h6 class="card-title text-muted">Features</h6>
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-check text-success me-2"></i>Single SMS sending</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Bulk SMS campaigns</li>
+                    <li><i class="fas fa-check text-success me-2"></i>File upload support</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Delivery tracking</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Account monitoring</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h6 class="card-title text-muted">Supported Formats</h6>
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-file-alt text-primary me-2"></i>Text files (.txt)</li>
+                    <li><i class="fas fa-file-csv text-primary me-2"></i>CSV files (.csv)</li>
+                    <li><i class="fas fa-globe text-primary me-2"></i>International numbers</li>
+                    <li><i class="fas fa-mobile-alt text-primary me-2"></i>Multiple carriers</li>
+                    <li><i class="fas fa-shield-alt text-primary me-2"></i>Secure transmission</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body">
+                <h6 class="card-title text-muted">API Information</h6>
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-server text-info me-2"></i>Infobip API</li>
+                    <li><i class="fas fa-clock text-info me-2"></i>Real-time delivery</li>
+                    <li><i class="fas fa-chart-line text-info me-2"></i>Detailed reporting</li>
+                    <li><i class="fas fa-lock text-info me-2"></i>Encrypted connection</li>
+                    <li><i class="fas fa-phone text-info me-2"></i>Global reach</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

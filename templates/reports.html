@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+
+{% block title %}Delivery Reports - SMS Application{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">
+            <i class="fas fa-chart-bar me-2"></i>Delivery Reports
+        </h1>
+        <p class="text-muted">View delivery status and reports for sent messages.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Filter Reports</h5>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary btn-sm" onclick="loadReports()">
+                            <i class="fas fa-sync-alt me-1"></i>Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="filterForm" class="row g-3">
+                    <div class="col-md-4">
+                        <label for="bulkIdFilter" class="form-label">Bulk ID (Optional)</label>
+                        <input type="text" class="form-control" id="bulkIdFilter" placeholder="Enter Bulk ID">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="limitFilter" class="form-label">Number of Reports</label>
+                        <select class="form-select" id="limitFilter">
+                            <option value="10">10 reports</option>
+                            <option value="25">25 reports</option>
+                            <option value="50" selected>50 reports</option>
+                            <option value="100">100 reports</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 d-flex align-items-end">
+                        <button type="submit" class="btn btn-outline-primary w-100">
+                            <i class="fas fa-search me-1"></i>Apply Filter
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent">
+                <h5 class="mb-0"><i class="fas fa-list me-2"></i>Recent Reports</h5>
+            </div>
+            <div class="card-body">
+                <div id="loadingReports" class="text-center py-4" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2 text-muted">Loading delivery reports...</p>
+                </div>
+                
+                <div id="reportsContent">
+                    <div class="text-center py-4 text-muted">
+                        <i class="fas fa-inbox fa-3x mb-3"></i>
+                        <p>Click "Refresh" to load delivery reports</p>
+                    </div>
+                </div>
+                
+                <div id="noReports" class="text-center py-4 text-muted" style="display: none;">
+                    <i class="fas fa-inbox fa-3x mb-3"></i>
+                    <h5>No Reports Found</h5>
+                    <p>No delivery reports match your criteria or no messages have been sent yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Load reports on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadReports();
+});
+
+// Filter form submission
+document.getElementById('filterForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    loadReports();
+});
+
+async function loadReports() {
+    const loadingDiv = document.getElementById('loadingReports');
+    const contentDiv = document.getElementById('reportsContent');
+    const noReportsDiv = document.getElementById('noReports');
+    
+    const bulkId = document.getElementById('bulkIdFilter').value.trim();
+    const limit = document.getElementById('limitFilter').value;
+    
+    // Show loading state
+    loadingDiv.style.display = 'block';
+    contentDiv.style.display = 'none';
+    noReportsDiv.style.display = 'none';
+    
+    try {
+        const params = new URLSearchParams();
+        if (bulkId) params.append('bulk_id', bulkId);
+        params.append('limit', limit);
+        
+        const response = await fetch(`/api/reports?${params}`);
+        const result = await response.json();
+        
+        if (result.success && result.reports.results && result.reports.results.length > 0) {
+            displayReports(result.reports.results);
+            contentDiv.style.display = 'block';
+        } else {
+            noReportsDiv.style.display = 'block';
+        }
+        
+    } catch (error) {
+        contentDiv.innerHTML = `
+            <div class="alert alert-danger">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                Error loading reports: ${error.message}
+            </div>
+        `;
+        contentDiv.style.display = 'block';
+    } finally {
+        loadingDiv.style.display = 'none';
+    }
+}
+
+function displayReports(reports) {
+    const contentDiv = document.getElementById('reportsContent');
+    
+    const tableHtml = `
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th><i class="fas fa-phone me-1"></i>Phone Number</th>
+                        <th><i class="fas fa-info-circle me-1"></i>Status</th>
+                        <th><i class="fas fa-clock me-1"></i>Sent At</th>
+                        <th><i class="fas fa-check-circle me-1"></i>Delivered At</th>
+                        <th><i class="fas fa-id-badge me-1"></i>Message ID</th>
+                        <th><i class="fas fa-dollar-sign me-1"></i>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${reports.map(report => {
+                        const status = report.status || {};
+                        const statusName = status.name || 'Unknown';
+                        const statusClass = getStatusClass(statusName);
+                        
+                        return `
+                            <tr>
+                                <td>
+                                    <strong>${report.to || 'N/A'}</strong>
+                                </td>
+                                <td>
+                                    <span class="badge bg-${statusClass}">
+                                        ${getStatusIcon(statusName)} ${statusName}
+                                    </span>
+                                </td>
+                                <td>
+                                    <small class="text-muted">
+                                        ${formatDateTime(report.sentAt) || 'N/A'}
+                                    </small>
+                                </td>
+                                <td>
+                                    <small class="text-muted">
+                                        ${formatDateTime(report.doneAt) || 'Pending'}
+                                    </small>
+                                </td>
+                                <td>
+                                    <small class="font-monospace">
+                                        ${report.messageId ? report.messageId.substring(0, 20) + '...' : 'N/A'}
+                                    </small>
+                                </td>
+                                <td>
+                                    <small class="text-muted">
+                                        ${report.price ? `${report.price.pricePerMessage} ${report.price.currency}` : 'N/A'}
+                                    </small>
+                                </td>
+                            </tr>
+                        `;
+                    }).join('')}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Showing ${reports.length} reports. Status updates may take a few minutes to appear.
+                </div>
+            </div>
+        </div>
+    `;
+    
+    contentDiv.innerHTML = tableHtml;
+}
+
+function getStatusClass(status) {
+    switch (status.toLowerCase()) {
+        case 'delivered':
+        case 'pending':
+            return 'success';
+        case 'undelivered':
+        case 'expired':
+        case 'rejected':
+            return 'danger';
+        case 'unknown':
+            return 'warning';
+        default:
+            return 'secondary';
+    }
+}
+
+function getStatusIcon(status) {
+    switch (status.toLowerCase()) {
+        case 'delivered':
+            return '<i class="fas fa-check-circle"></i>';
+        case 'pending':
+            return '<i class="fas fa-clock"></i>';
+        case 'undelivered':
+        case 'expired':
+        case 'rejected':
+            return '<i class="fas fa-times-circle"></i>';
+        case 'unknown':
+            return '<i class="fas fa-question-circle"></i>';
+        default:
+            return '<i class="fas fa-info-circle"></i>';
+    }
+}
+
+function formatDateTime(dateString) {
+    if (!dateString) return null;
+    
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleString();
+    } catch (e) {
+        return dateString;
+    }
+}
+</script>
+{% endblock %}
+
