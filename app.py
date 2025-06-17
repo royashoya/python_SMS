@@ -204,11 +204,15 @@ def api_reports():
         if bulk_id:
             kwargs['bulk_id'] = bulk_id
         
-        reports = sms_client.get_delivery_reports(**kwargs)
+        reports_response = sms_client.get_delivery_reports(**kwargs)
+        
+        # Extract the results array from the API response
+        reports = reports_response.get('results', [])
         
         return jsonify({
             'success': True,
-            'reports': reports
+            'reports': reports,
+            'total': len(reports)
         })
     except Exception as e:
         return jsonify({
