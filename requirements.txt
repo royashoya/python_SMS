@@ -1,4 +1,5 @@
 requests>=2.25.1
 Flask>=2.0.0
 Werkzeug>=2.0.0
+psutil>=5.9.0
 

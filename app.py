@@ -228,6 +228,43 @@ def not_found(e):
 def internal_error(e):
     return render_template('500.html'), 500
 
+@app.route('/health')
+def health_check():
+    """Health check endpoint for monitoring"""
+    from datetime import datetime
+    import sys
+    return jsonify({
+        'status': 'healthy',
+        'timestamp': datetime.now().isoformat(),
+        'version': '2.0.0',
+        'python_version': sys.version,
+        'app_name': 'SMS Web Application'
+    })
+
+@app.route('/metrics')
+def metrics():
+    """Basic metrics endpoint"""
+    import os
+    import psutil
+    from datetime import datetime
+    
+    try:
+        process = psutil.Process(os.getpid())
+        memory_info = process.memory_info()
+        
+        return jsonify({
+            'timestamp': datetime.now().isoformat(),
+            'memory_usage_mb': round(memory_info.rss / 1024 / 1024, 2),
+            'cpu_percent': process.cpu_percent(),
+            'uptime_seconds': round(time.time() - process.create_time(), 2),
+            'threads': process.num_threads()
+        })
+    except Exception as e:
+        return jsonify({
+            'error': 'Metrics unavailable',
+            'timestamp': datetime.now().isoformat()
+        }), 500
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    app.run(debug=True, host='0.0.0.0', port=5000)
 
