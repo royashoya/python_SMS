@@ -157,6 +157,9 @@ class SMSClient:
         
         Returns:
             Dict containing account balance information
+        
+        Note: This feature requires specific API permissions that may not be 
+        available with all API keys. SMS sending functionality works independently.
         """
         url = f"{self.base_url}/account/1/balance"
         
@@ -165,6 +168,15 @@ class SMSClient:
             response.raise_for_status()
             return response.json()
             
+        except requests.exceptions.HTTPError as e:
+            if e.response.status_code == 403:
+                raise requests.RequestException(
+                    "Balance checking requires additional API permissions. "
+                    "Contact Infobip support to enable account access features. "
+                    "SMS sending functionality is not affected."
+                )
+            else:
+                raise requests.RequestException(f"Failed to check balance: {str(e)}")
         except requests.exceptions.RequestException as e:
             raise requests.RequestException(f"Failed to check balance: {str(e)}")
     
